@@ -4470,34 +4470,39 @@ flexibility(document.documentElement);
     <!-- start Simple Custom CSS and JS -->
     <style>
         .LeftStickyBtn {
-            position: fixed;
-            top: 50%;
-            left: -80px;
-            height: 40px;
-            width: 200px;
-            border: #144923 solid 1px;
-            background: #144923;
+            position: relative;
+            bottom: 70px;
+            left: 10px;
+            height: 50px;
+            width: 50px;
+            border: transparent solid 1px;
+            background: linear-gradient(180deg, #01dc0c , #01ab0a);
+            filter: brightness(110%);
+            backdrop-filter: blur(5px);
+            /* backdrop-filter: blur; */
             display: block;
             cursor: pointer;
             text-align: center;
             color: #fff;
             line-height: 40px;
-            border: 1px solid #144923;
+            border: 1px solid transparent;
+            box-shadow: 0px 0px 1px 1px #aaa;
             position: fixed;
             z-index: 12;
-            border-radius: 0 0 10px 10px;
-            opacity: 1;
-            -webkit-transform: rotate(-90deg);
+            border-radius: 10px;
+            scale: 0.8;
+            /* opacity: 1; */
+            /* -webkit-transform: rotate(-90deg);
             -moz-transform: rotate(-90deg);
             -o-transform: rotate(-90deg);
             -ms-transform: rotate(-90deg);
-            transform: rotate(-90deg);
-            font-size: 19px;
-            text-decoration: none !important;
+            transform: rotate(-90deg); */
+            /* text-decoration: none !important; */
         }
 
         a.LeftStickyBtn:hover {
             color: #fff;
+            scale: 0.9;
         }
 
         .RightStickyBtn {
@@ -4532,7 +4537,8 @@ flexibility(document.documentElement);
         }
     </style>
 
-    <a href="/user-consent/" class="LeftStickyBtn">User Consent</a>
+    <a href="./userConsent/index.html" class="LeftStickyBtn"><img src="./userConsentlogo.svg" alt="user-consent"></a>
+
 
     <a href="/complaint-board/" class="RightStickyBtn">Complaint Board</a>
     <!-- end Simple Custom CSS and JS -->
@@ -4586,7 +4592,7 @@ flexibility(document.documentElement);
                                                             </li>
                                                             <li id="menu-item-3803"
                                                                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3803">
-                                                                <a href="#" class="menu-link"><i
+                                                                <a href="tel:9819596352" class="menu-link"><i
                                                                         class="_mi _before fa fa-phone"
                                                                         aria-hidden="true"></i><span>Free
                                                                         Consultation</span></a>
@@ -5015,8 +5021,8 @@ flexibility(document.documentElement);
                                                                                 class="wpforms-required-label">*</span></label><input
                                                                             type="email" id="wpforms-1290-field_2"
                                                                             class="wpforms-field-large wpforms-field-required"
-                                                                            name="email" placeholder="Email"
-                                                                            required></div>
+                                                                            name="email" placeholder="Email" required>
+                                                                    </div>
                                                                     <!-- <div id="wpforms-1290-field_3-container"
                                                                             class="wpforms-field wpforms-field-email wpforms-one-half"
                                                                             data-field-id="3"><label
@@ -5053,8 +5059,7 @@ flexibility(document.documentElement);
                                                                                 class="wpforms-required-label">*</span></label><select
                                                                             id="wpforms-1290-field_7"
                                                                             class="wpforms-field-large wpforms-field-required"
-                                                                            name="Segment"
-                                                                            required="required">
+                                                                            name="Segment" required="required">
                                                                             <option value="" class="placeholder"
                                                                                 disabled selected='selected'>Segment
                                                                             </option>
@@ -5094,16 +5099,12 @@ flexibility(document.documentElement);
                                                                 </div>
                                                                 <!-- .wpforms-field-container -->
                                                                 <div class="wpforms-submit-container"><input
-                                                                        type="hidden" 
-                                                                        value="1290"><input type="hidden"
-                                                                        value="Home"><input
-                                                                        type="hidden"
+                                                                        type="hidden" value="1290"><input type="hidden"
+                                                                        value="Home"><input type="hidden"
                                                                         value="https://easyshareservices.vip/"><input
-                                                                        type="hidden" value="3310"><input
-                                                                        type="hidden" 
+                                                                        type="hidden" value="3310"><input type="hidden"
                                                                         value="3310"><button type="submit"
-                                                                        id="wpforms-submit-1290"
-                                                                        class="wpforms-submit"
+                                                                        id="wpforms-submit-1290" class="wpforms-submit"
                                                                         data-alt-text="Sending..."
                                                                         data-submit-text="Submit" aria-live="assertive"
                                                                         value="wpforms-submit">Submit</button><img
@@ -5768,6 +5769,7 @@ flexibility(document.documentElement);
                                                     <div class="elementor-image-carousel-wrapper swiper" dir="ltr">
                                                         <div class="elementor-image-carousel swiper-wrapper"
                                                             aria-live="off">
+
                                                             <div class="swiper-slide" role="group"
                                                                 aria-roledescription="slide" aria-label="1 of 5">
                                                                 <figure class="swiper-slide-inner"><img decoding="async"
@@ -6071,7 +6073,7 @@ flexibility(document.documentElement);
                                                 </li>
                                                 <li
                                                     class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3803">
-                                                    <a href="#" class="menu-link"><i class="_mi _before fa fa-phone"
+                                                    <a href="tel:9819596352" class="menu-link"><i class="_mi _before fa fa-phone"
                                                             aria-hidden="true"></i><span>Free Consultation</span></a>
                                                 </li>
                                                 <li
@@ -6119,6 +6121,7 @@ flexibility(document.documentElement);
 
             </div>
         </footer>
+
         <!-- #colophon -->
     </div>
     <!-- #page -->
