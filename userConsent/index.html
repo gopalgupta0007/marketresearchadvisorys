@@ -4433,7 +4433,7 @@ flexibility(document.documentElement);
             height: 50px;
             width: 50px;
             border: transparent solid 1px;
-            background: linear-gradient(180deg, #01dc0c , #01ab0a);
+            background: linear-gradient(180deg, #01dc0c, #01ab0a);
             filter: brightness(110%);
             backdrop-filter: blur(5px);
             /* backdrop-filter: blur; */
@@ -4491,6 +4491,165 @@ flexibility(document.documentElement);
 
         a.RightStickyBtn:hover {
             color: #fff;
+        }
+
+        .textTypeAnimation {
+            /* width: 72%; */
+            width: fit-content;
+            position: relative;
+            color: #a0a0a0;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke: green;
+            /* -webkit-text-stroke-width: 2px; */
+            /* color: rgb(255, 145, 0); */
+            font-size: 1.3vw;
+            font-weight: bolder;
+            margin-bottom: 30px;
+        }
+
+        .textTypeAnimation::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* font-size: 5vw; */
+            /* left: -10px; */
+            width: 0%;
+            height: 90%;
+            /* font-weight: bolder; */
+            color: green;
+            border-right: 2.5px solid green;
+            overflow: hidden;
+            animation: textAnimation 10s infinite alternate ease-in-out;
+        }
+
+        @keyframes textAnimation {
+            0% {
+                width: 0%;
+            }
+
+            20% {
+                width: 100%;
+            }
+
+            80% {
+                width: 100%;
+            }
+
+            100% {
+                width: 0%;
+            }
+        }
+
+        /* for small screen support animation */
+        /* #business_solutinos { */
+        /* #fonts {
+            margin-top: -45px;
+            /* margin-left: -30%; 
+        } */
+
+        /* .textTypeAnimation_business { */
+        .vertical_animation_top2bottom {
+            width: 100%;
+            position: relative;
+            margin: 2px;
+            /* bottom: 25px;
+            left: 2px; */
+            font-weight: bolder;
+            color: #ccc;
+            /* -webkit-text-stroke: black; */
+            /* -webkit-text-stroke-width: 0.01px; */
+            /* font-size: 2vw; */
+            font-size: 15px;
+            font-weight: bolder;
+        }
+
+        .vertical_animation_top2bottom::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            -webkit-text-stroke: transparent;
+            -webkit-text-stroke-width: 0px;
+            /* font-size: 5vw; */
+            /* left: -10px; */
+            width: 100%;
+            height: 90%;
+            /* font-weight: bolder; */
+            color: green;
+            /* border-bottom: 3px solid blue; */
+            overflow: hidden;
+            animation: textAnimationVertical_top2bottom 5s infinite alternate ease-in-out;
+        }
+
+        @keyframes textAnimationVertical_top2bottom {
+            0% {
+                height: 15%;
+            }
+
+            25% {
+                height: 90%;
+            }
+
+            75% {
+                height: 90%;
+            }
+
+            100% {
+                height: 15%;
+            }
+        }
+
+        .vertical_animation_bottom2top {
+            width: 100%;
+            position: relative;
+            margin: 2px;
+            /* bottom: 25px;
+            left: 2px; */
+            font-weight: bolder;
+            color: green;
+            /* -webkit-text-stroke: black; */
+            /* -webkit-text-stroke-width: 0.01px; */
+            font-size: 15px;
+            font-weight: bolder;
+        }
+
+        .vertical_animation_bottom2top::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* -webkit-text-stroke: black; */
+            /* -webkit-text-stroke-width: 0.; */
+            /* font-size: 5vw; */
+            /* left: -10px; */
+            width: 100%;
+            height: 90%;
+            /* font-weight: bolder; */
+            color: #ccc;
+            /* border-bottom: 3px solid blue; */
+            overflow: hidden;
+            animation: textAnimationVertical_bottom2top 5s infinite alternate ease-in-out;
+        }
+
+        @keyframes textAnimationVertical_bottom2top {
+            0% {
+                /* height: 15%; */
+                height: 90%;
+            }
+
+            25% {
+                height: 15%;
+            }
+
+            75% {
+                height: 15%;
+            }
+
+            100% {
+                height: 90%;
+                /* height: 15%; */
+            }
         }
     </style>
 
@@ -4583,12 +4742,19 @@ flexibility(document.documentElement);
                                     <div class="ast-builder-layout-element ast-flex site-header-focus-item"
                                         data-section="title_tagline">
                                         <div class="site-branding ast-site-identity"
-                                            itemtype="https://schema.org/Organization" itemscope="itemscope">
-                                            <span class="site-logo-img"><a href="../index.html"
-                                                    class="custom-logo-link" rel="home"><img width="110" height="83"
+                                            itemtype="https://schema.org/Organization"
+                                            style="display: flex; flex-direction: column;" itemscope="itemscope">
+                                            <span class="site-logo-img"><a href="../index.html" class="custom-logo-link"
+                                                    rel="home" aria-current="page"><img width="110" height="83"
                                                         src="logo-removebg-preview.png" class="custom-logo"
-                                                        alt="Market Research Advisory" decoding="async"
-                                                        srcset="" /></a></span>
+                                                        alt="Market Research Advisory" decoding="async" srcset=""
+                                                        sizes="(max-width: 110px) 100vw, 110px" /></a></span><br>
+                                            <h5 class='textTypeAnimation' style="cursor: pointer;"
+                                                onclick="window.location.href='tel:8450988560';"
+                                                data-text="For&nbsp;Support&nbsp;:&nbsp;+91&nbsp;8450988560">For Support
+                                                :
+                                                +91&nbsp;8450988560&nbsp;
+                                            </h5>
                                         </div>
                                         <!-- .site-branding -->
                                     </div>
@@ -4609,8 +4775,7 @@ flexibility(document.documentElement);
                                                             class="main-header-menu ast-menu-shadow ast-nav-menu ast-flex  submenu-with-border ast-menu-hover-style-underline  stack-on-mobile">
                                                             <li id="menu-item-3316"
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-3316">
-                                                                <a href="../index.html"
-                                                                    class="menu-link">Home</a>
+                                                                <a href="../index.html" class="menu-link">Home</a>
                                                             </li>
                                                             <li id="menu-item-1476"
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1476">
@@ -4664,12 +4829,30 @@ flexibility(document.documentElement);
                                 <div class="ast-builder-layout-element ast-flex site-header-focus-item"
                                     data-section="title_tagline">
                                     <div class="site-branding ast-site-identity"
-                                        itemtype="https://schema.org/Organization" itemscope="itemscope">
-                                        <span class="site-logo-img"><a href="../index.html"
-                                                class="custom-logo-link" rel="home"><img width="110" height="83"
+                                        itemtype="https://schema.org/Organization"
+                                        style="display: flex; flex-direction: column;" itemscope="itemscope">
+                                        <span class="site-logo-img"><a href="./index.html" class="custom-logo-link"
+                                                rel="home" aria-current="page"><img width="110" height="83"
                                                     src="logo-removebg-preview.png" class="custom-logo"
                                                     alt="Market Research Advisory" decoding="async" srcset=""
-                                                    sizes="(max-width: 110px) 100vw, 110px" /></a></span>
+                                                    sizes="(max-width: 110px) 100vw, 110px" /></a></span><br>
+                                        <h5 id='fonts'
+                                            style="text-align: center; margin-top: 10px; display: flex;flex-direction: column;"
+                                            onclick="window.location.href='tel:8450988560';">
+                                            <b class='vertical_animation_top2bottom'
+                                                data-text="+91&nbsp;8450988560">+91&nbsp;8450988560</b>
+                                            <div
+                                                style="width: 100%; height: 3px; background-color: green; border-radius: 10px;">
+                                                &nbsp;</div>
+                                            <b class='vertical_animation_bottom2top' data-text="For&nbsp;Support">For
+                                                Support</b>
+                                        </h5>
+                                        <!-- <h2 id='fonts'>
+                                            <b className='vertical_animation'
+                                                data-text="BUSINESS">BUSINESS</b>&nbsp;
+                                            <b className='vertical_animation'
+                                                data-text="SOLUTIONS">SOLUTIONS</b>
+                                        </h2> -->
                                     </div>
                                     <!-- .site-branding -->
                                 </div>
@@ -4899,11 +5082,13 @@ flexibility(document.documentElement);
                                                     data-widget_type="text-editor.default">
                                                     <div class="elementor-widget-container">
                                                         <p>By visiting/Using/accessing our website
-                                                            https://marketresearchadvisory.com/ and by making payment for a
+                                                            https://marketresearchadvisory.com/ and by making payment
+                                                            for a
                                                             subscription of any of our research services, you are
                                                             agreeing to be bound by the following terms
                                                             and conditions and all other terms and conditions, Legal
-                                                            Disclaimer, Disclosures, Policies and User Consent of Market Research Advisory firm mentioned on our official website
+                                                            Disclaimer, Disclosures, Policies and User Consent of Market
+                                                            Research Advisory firm mentioned on our official website
                                                             https://marketresearchadvisory.com/</p>
                                                         <p>We may change these terms and conditions and all other terms
                                                             and conditions, Legal Disclaimer, Disclosures, Policies, and
@@ -4919,11 +5104,13 @@ flexibility(document.documentElement);
                                                             to time to stay
                                                             abreast of any changes that we may introduce.</p>
                                                         <p>The term Market Research Advisory firm
-                                                            (https://marketresearchadvisory.com/) is used throughout this
+                                                            (https://marketresearchadvisory.com/) is used throughout
+                                                            this
                                                             entire document to refer to the website and its
                                                             owners/proprietor, and the employees and associates of the
                                                             owner. The words ‘You’ refer to the viewer/user/subscriber
-                                                            of Market Research Advisory firm website /research services.</p>
+                                                            of Market Research Advisory firm website /research services.
+                                                        </p>
                                                         <p>You hereby declare that the details provided by you at the
                                                             time of subscription to our services are true and correct to
                                                             the best of your knowledge and belief and you undertake to
@@ -4935,8 +5122,10 @@ flexibility(document.documentElement);
                                                             that involves the risk of Loss of partial or complete
                                                             capital and that there is no guarantee of profits or returns
                                                             after subscribing to
-                                                            any of Market Research Advisory research alerts services.</p>
-                                                        <p>You understand and accept that the service provided by Market Research Advisory is general trading technical analysis
+                                                            any of Market Research Advisory research alerts services.
+                                                        </p>
+                                                        <p>You understand and accept that the service provided by Market
+                                                            Research Advisory is general trading technical analysis
                                                             research and is not investment The final decision to take or
                                                             not to take any trade
                                                             is completely yours. Also, the decision to trade the
@@ -4945,7 +5134,8 @@ flexibility(document.documentElement);
                                                             You accept the entire
                                                             responsibility for any gains or losses that arise out of
                                                             your trading activities.</p>
-                                                        <p>You understand and accept that the service provided by Market Research Advisory is purely based on the market research and
+                                                        <p>You understand and accept that the service provided by Market
+                                                            Research Advisory is purely based on the market research and
                                                             analysis and pertains to the opinion of the research analyst
                                                             based on prevalent
                                                             market conditions. The service is only a research
@@ -4958,7 +5148,8 @@ flexibility(document.documentElement);
                                                             accept the entire
                                                             responsibility for any gains or losses that arise out of
                                                             your trading activities.</p>
-                                                        <p>You understand and agree that Market Research Advisory Research
+                                                        <p>You understand and agree that Market Research Advisory
+                                                            Research
                                                             Analyst firm and/or its
                                                             owner/proprietor/managers/employees/associates do not
                                                             provide any assurance or guarantee of accuracy or
@@ -4969,7 +5160,8 @@ flexibility(document.documentElement);
                                                             only.</p>
                                                         <p>You understand and agree that the accuracy Level/percentage
                                                             of any of our research services/alerts may vary from time to
-                                                            time and there is no commitment from Market Research Advisory
+                                                            time and there is no commitment from Market Research
+                                                            Advisory
                                                             Research Analyst
                                                             firm and/or its
                                                             owner/proprietor/managers/employees/associates to deliver
@@ -4983,24 +5175,31 @@ flexibility(document.documentElement);
                                                             the trades placed in your Demat account/trading account
                                                             (Broker Account) based on our research recommendations
                                                             during your tenure
-                                                            of your subscription period with Market Research Advisory.</p>
-                                                        <p>You understand that the service provided by Market Research Advisory firm is only a research service and is meant only
+                                                            of your subscription period with Market Research Advisory.
+                                                        </p>
+                                                        <p>You understand that the service provided by Market Research
+                                                            Advisory firm is only a research service and is meant only
                                                             for reference. You understand and accept that the service
-                                                            provided by Market Research Advisory firm is not an Investment Advice and all decisions
+                                                            provided by Market Research Advisory firm is not an
+                                                            Investment Advice and all decisions
                                                             to trade/invest in any stock are solely yours and any loss/
                                                             gain that may arise out of such trades/ investments are
                                                             solely your responsibility/
                                                             liability.</p>
                                                         <p>You Agree to All Terms and Conditions, Disclosures,
-                                                            Disclaimers, Policies, and User Consent of Market Research Advisory firm and You know Very Well About the Risk
+                                                            Disclaimers, Policies, and User Consent of Market Research
+                                                            Advisory firm and You know Very Well About the Risk
                                                             Associated with Trading &amp; Investing
                                                             in the Stock Market and still you wish to subscribe to the
-                                                            research services of the Market Research Advisory You have been
+                                                            research services of the Market Research Advisory You have
+                                                            been
                                                             informed completely about all the aspects of the services
-                                                            provided by Market Research Advisory firm including the risks associated with
+                                                            provided by Market Research Advisory firm including the
+                                                            risks associated with
                                                             trading and investing in the Stock Market. You confirm and
                                                             agree that You have taken the subscription of research
-                                                            services of Market Research Advisory firm after fully understanding the risks involved
+                                                            services of Market Research Advisory firm after fully
+                                                            understanding the risks involved
                                                             in Trading and Investing. You confirm and accept that You do
                                                             not expect a fixed return or a guaranteed return from the
                                                             research alerts
@@ -5015,20 +5214,24 @@ flexibility(document.documentElement);
                                                             name https://marketresearchadvisory.com/</p>
                                                         <p>And You have read, understood, and accepted the risk
                                                             mentioned in the disclaimer on the website/mobile app of
-                                                            Market Research Advisory firm https://marketresearchadvisory.com/</p>
+                                                            Market Research Advisory firm
+                                                            https://marketresearchadvisory.com/</p>
                                                         <p>You understand and accept that Trading in the stock market is
                                                             subject to market risk and You understand and accept that
                                                             You may Lose some or your entire capital of yours in the
                                                             stock market trading/
-                                                            investing activities, therefore. Market Research Advisory firm or
+                                                            investing activities, therefore. Market Research Advisory
+                                                            firm or
                                                             its the proprietor/owner cannot be held responsible for any
                                                             losses in the stock market that you may incur and managing
                                                             of trades is
                                                             completely your responsibility.</p>
                                                         <p>You confirm that You have not been asked for your Demat
                                                             Trading Account Login ID &amp; Password by any of the
-                                                            employees/representatives of Market Research Advisory Firm or
-                                                            anyone associated with Market Research Advisory Firm and your Demat/ Trading Account Login
+                                                            employees/representatives of Market Research Advisory Firm
+                                                            or
+                                                            anyone associated with Market Research Advisory Firm and
+                                                            your Demat/ Trading Account Login
                                                             Credentials are not disclosed/Known to anyone except
                                                             yourself.</p>
                                                         <p>You understand and accept that You have been informed
@@ -5043,28 +5246,34 @@ flexibility(document.documentElement);
                                                             yourself.</p>
                                                         <p>You understand and accept that because You have been informed
                                                             about all the risks in trading/investing and have taken the
-                                                            subscription package of Market Research Advisory trading research
+                                                            subscription package of Market Research Advisory trading
+                                                            research
                                                             services/alerts,
                                                             you have to bear the Loss that may arise due to your trading
                                                             activities. You also understand and accept that You cannot
-                                                            claim or complain against Market Research Advisory firm or its
+                                                            claim or complain against Market Research Advisory firm or
+                                                            its
                                                             proprietor/ owner/
                                                             employees/ associates if you lose money in trading or
                                                             investing.</p>
-                                                        <p>You declare that Market Research Advisory firm and its proprietor/
+                                                        <p>You declare that Market Research Advisory firm and its
+                                                            proprietor/
                                                             Owner/ employees/ associates have not guaranteed you or
                                                             assured you any returns or profits by trading and investing
                                                             in the stock</p>
-                                                        <p>You understand and accept that Market Research Advisory firm and
+                                                        <p>You understand and accept that Market Research Advisory firm
+                                                            and
                                                             its proprietor/owner/employees/ associates do not provide
                                                             any order execution services for trading/ investing
                                                             purposes.</p>
-                                                        <p>You understand and accept that Amount paid to Market Research Advisory firm are fees for providing you with a research
+                                                        <p>You understand and accept that Amount paid to Market Research
+                                                            Advisory firm are fees for providing you with a research
                                                             alerts service and this amount is not an investment in the
                                                             Stock Market itself and
                                                             that the amount of the fee paid by you is not refundable in
                                                             any conditions or You Understand and accept that the fees
-                                                            paid by you are only for research services and that the Market Research Advisory
+                                                            paid by you are only for research services and that the
+                                                            Market Research Advisory
                                                             firm and it’s the proprietor/ Owner/ employees/ associates
                                                             will not invest any amount on your behalf in the stock
                                                             market and you have been informed clearly about the same by
@@ -5074,20 +5283,25 @@ flexibility(document.documentElement);
                                                             to the take the risks involved in Trading/ Investing and
                                                             that any loss that might arise out of any such trading
                                                             activity done by you whether
-                                                            or not by reference to Market Research Advisory Firm research
+                                                            or not by reference to Market Research Advisory Firm
+                                                            research
                                                             reports or call guidance, hence, you accept that you cannot
                                                             and will not file any legal complaint or legal notice
-                                                            against the Market Research Advisory Firm and its proprietor/ Owner/ employees/
+                                                            against the Market Research Advisory Firm and its
+                                                            proprietor/ Owner/ employees/
                                                             associates.</p>
                                                         <p>You accept that you have read all the text in this document
                                                             carefully in detail and you have understood and accepted all
                                                             the mentioned terms and conditions as well as all the terms
                                                             and conditions
                                                             including all the disclaimers, disclosures, and policies
-                                                            mentioned in the official website of Market Research Advisory
-                                                            firm (https://marketresearchadvisory.com/). You officially accept
+                                                            mentioned in the official website of Market Research
+                                                            Advisory
+                                                            firm (https://marketresearchadvisory.com/). You officially
+                                                            accept
                                                             all the terms and
-                                                            conditions laid by Market Research Advisory firm in a digital
+                                                            conditions laid by Market Research Advisory firm in a
+                                                            digital
                                                             confirmation/consent via this document, the
                                                             confirmation/consent provided by you may act as final
                                                             notification &amp; confirmation and
@@ -5105,7 +5319,8 @@ flexibility(document.documentElement);
                                                             return.</p>
                                                         <p>You agree that you have gone through all our Packages
                                                             available on our official website <a
-                                                                href="../index.html">Market Research Advisory</a>, i.e., Index Option (Standard Package) and
+                                                                href="../index.html">Market Research Advisory</a>, i.e.,
+                                                            Index Option (Standard Package) and
                                                             Index Option (Premium Package).</p>
                                                         <p>Our past performance does not indicate our future
                                                             performance, and hence investors are requested to be aware
@@ -5125,30 +5340,32 @@ flexibility(document.documentElement);
                                                             wishes to deploy in that particular trade at his/her sole
                                                             discretion.</p>
                                                         <p>We strictly recommend you not to entertain any calls made to
-                                                            you from personal or other numbers by the name of Market Research Advisory and asking you for personal details, Demat/Trading
+                                                            you from personal or other numbers by the name of Market
+                                                            Research Advisory and asking you for personal details,
+                                                            Demat/Trading
                                                             account Login
                                                             ID and password, transfer funds to a personal account, etc.
-                                                            Market Research Advisory will not be liable for any financial or
+                                                            Market Research Advisory will not be liable for any
+                                                            financial or
                                                             non-financial transaction/action taken by the client on such
                                                             communications.
                                                             If someone asks you for such details, please deny them
                                                             immediately and call us on our official compliance number
                                                             9819596352 regarding the same.</p>
-                                                        <p>Market Research Advisory will provide research recommendations to
+                                                        <p>Market Research Advisory will provide research
+                                                            recommendations to
                                                             paid client through official whatsapp broadcast messages.
                                                             The Research Analyst shall not be liable if the client
                                                             accepts the recommendation
                                                             which is provided to clients by any other means.</p>
                                                         <p>Client shall communicate/ respond/ acknowledge communications
-                                                            via email from <a
-                                                                >----------</a>
+                                                            via email from <a>----------</a>
                                                             or marketresearchadvisory.com domain
                                                             name only. The Research Analyst will not be liable for any
                                                             email that has been received or sent by the client from any
                                                             other domain name or email ID.</p>
                                                         <p>In case of any query or concerns, the client can write us an
-                                                            email to <a
-                                                                >----------</a>
+                                                            email to <a>----------</a>
                                                             or can contact us on our compliance person
                                                             number 9819596352</p>
                                                         <p>Further, clients are advised to go through the website and
@@ -5161,8 +5378,10 @@ flexibility(document.documentElement);
                                                             accepted all the mentioned terms and conditions,
                                                             disclaimers, disclosures, refund policy,
                                                             and all other policies mentioned on the official website of
-                                                            Market Research Advisory (https://marketresearchadvisory.com/). You
-                                                            officially accept all the terms and conditions laid by Market Research Advisory
+                                                            Market Research Advisory
+                                                            (https://marketresearchadvisory.com/). You
+                                                            officially accept all the terms and conditions laid by
+                                                            Market Research Advisory
                                                             vide digital confirmation/consent via this document, the
                                                             confirmation/consent provided by you may act as final
                                                             notification &amp; confirmation and it implies that you have
@@ -5183,7 +5402,8 @@ flexibility(document.documentElement);
                                                             to this practice.</p>
                                                         <p>We request you to acknowledge and confirm all the terms and
                                                             conditions mentioned above in this document by clicking on
-                                                            the “Yes I Agree” button below in this document. Market Research Advisory Firm will
+                                                            the “Yes I Agree” button below in this document. Market
+                                                            Research Advisory Firm will
                                                             consider these details and your consent/ acceptance of all
                                                             the above terms and conditions to be final and will be taken
                                                             on an as-is basis for all our services and products to which
@@ -5592,11 +5812,9 @@ flexibility(document.documentElement);
                                         </div>
                                     </section>
                                     <section id="media_image-1" class="widget widget_media_image"><img width="300"
-                                            height="300"
-                                            src="../logo.svg"
+                                            height="300" src="../logo.svg"
                                             class="image wp-image-4408  attachment-medium size-medium" alt=""
-                                            style="max-width: 100%; height: auto;" decoding="async"
-                                            srcset=""
+                                            style="max-width: 100%; height: auto;" decoding="async" srcset=""
                                             sizes="(max-width: 300px) 100vw, 300px" /></section>
                                 </div>
                             </aside>
@@ -5848,8 +6066,9 @@ flexibility(document.documentElement);
 
     </div>
 
-    <div id="ast-scroll-top" tabindex="0" class="ast-scroll-to-top-right" style="border-radius: 50%; scale: 1.5;" data-on-devices="both">
-        <i class="fa-solid fa-arrow-up" ></i>
+    <div id="ast-scroll-top" tabindex="0" class="ast-scroll-to-top-right" style="border-radius: 50%; scale: 1.5;"
+        data-on-devices="both">
+        <i class="fa-solid fa-arrow-up"></i>
     </div>
     <!-- Click to Chat - https://holithemes.com/plugins/click-to-chat/  v4.12.1 -->
     <div class="ht-ctc ht-ctc-chat ctc-analytics ctc_wp_mobile style-2  " id="ht-ctc-chat"
@@ -5881,7 +6100,7 @@ flexibility(document.documentElement);
         </div>
     </div>
     <span class="ht_ctc_chat_data" data-no_number=""
-        data-settings="{&quot;number&quot;:&quot;917304231283&quot;,&quot;pre_filled&quot;:&quot;&quot;,&quot;dis_m&quot;:&quot;show&quot;,&quot;dis_d&quot;:&quot;show&quot;,&quot;css&quot;:&quot;display: none; cursor: pointer; z-index: 99999999;&quot;,&quot;pos_d&quot;:&quot;position: fixed; bottom: 26px; left: 15px;&quot;,&quot;pos_m&quot;:&quot;position: fixed; bottom: 26px; left: 15px;&quot;,&quot;schedule&quot;:&quot;no&quot;,&quot;se&quot;:150,&quot;ani&quot;:&quot;no-animations&quot;,&quot;url_target_d&quot;:&quot;_blank&quot;,&quot;ga&quot;:&quot;yes&quot;,&quot;fb&quot;:&quot;yes&quot;,&quot;g_init&quot;:&quot;default&quot;,&quot;g_an_event_name&quot;:&quot;chat: {number}&quot;,&quot;pixel_event_name&quot;:&quot;Click to Chat by HoliThemes&quot;}"></span>
+        data-settings="{&quot;number&quot;:&quot;919819596352&quot;,&quot;pre_filled&quot;:&quot;&quot;,&quot;dis_m&quot;:&quot;show&quot;,&quot;dis_d&quot;:&quot;show&quot;,&quot;css&quot;:&quot;display: none; cursor: pointer; z-index: 99999999;&quot;,&quot;pos_d&quot;:&quot;position: fixed; bottom: 26px; left: 15px;&quot;,&quot;pos_m&quot;:&quot;position: fixed; bottom: 26px; left: 15px;&quot;,&quot;schedule&quot;:&quot;no&quot;,&quot;se&quot;:150,&quot;ani&quot;:&quot;no-animations&quot;,&quot;url_target_d&quot;:&quot;_blank&quot;,&quot;ga&quot;:&quot;yes&quot;,&quot;fb&quot;:&quot;yes&quot;,&quot;g_init&quot;:&quot;default&quot;,&quot;g_an_event_name&quot;:&quot;chat: {number}&quot;,&quot;pixel_event_name&quot;:&quot;Click to Chat by HoliThemes&quot;}"></span>
     <script type='text/javascript'>
         const lazyloadRunObserver = () => {
             const lazyloadBackgrounds = document.querySelectorAll(`.e-con.e-parent:not(.e-lazyloaded)`);
@@ -5954,7 +6173,7 @@ flexibility(document.documentElement);
         id="astra-theme-js-js"></script>
     <script id="ht_ctc_app_js-js-extra">
         var ht_ctc_chat_var = {
-            "number": "917304231283",
+            "number": "919819596352",
             "pre_filled": "",
             "dis_m": "show",
             "dis_d": "show",
