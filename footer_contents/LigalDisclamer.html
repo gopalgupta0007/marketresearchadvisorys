@@ -4433,7 +4433,7 @@ flexibility(document.documentElement);
             height: 50px;
             width: 50px;
             border: transparent solid 1px;
-            background: linear-gradient(180deg, #01dc0c , #01ab0a);
+            background: linear-gradient(180deg, #01dc0c, #01ab0a);
             filter: brightness(110%);
             backdrop-filter: blur(5px);
             /* backdrop-filter: blur; */
@@ -4491,6 +4491,165 @@ flexibility(document.documentElement);
 
         a.RightStickyBtn:hover {
             color: #fff;
+        }
+
+        .textTypeAnimation {
+            /* width: 72%; */
+            width: fit-content;
+            position: relative;
+            color: #a0a0a0;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke: green;
+            /* -webkit-text-stroke-width: 2px; */
+            /* color: rgb(255, 145, 0); */
+            font-size: 1.3vw;
+            font-weight: bolder;
+            margin-bottom: 30px;
+        }
+
+        .textTypeAnimation::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* font-size: 5vw; */
+            /* left: -10px; */
+            width: 0%;
+            height: 90%;
+            /* font-weight: bolder; */
+            color: green;
+            border-right: 2.5px solid green;
+            overflow: hidden;
+            animation: textAnimation 10s infinite alternate ease-in-out;
+        }
+
+        @keyframes textAnimation {
+            0% {
+                width: 0%;
+            }
+
+            20% {
+                width: 100%;
+            }
+
+            80% {
+                width: 100%;
+            }
+
+            100% {
+                width: 0%;
+            }
+        }
+
+        /* for small screen support animation */
+        /* #business_solutinos { */
+        /* #fonts {
+            margin-top: -45px;
+            /* margin-left: -30%; 
+        } */
+
+        /* .textTypeAnimation_business { */
+        .vertical_animation_top2bottom {
+            width: 100%;
+            position: relative;
+            margin: 2px;
+            /* bottom: 25px;
+            left: 2px; */
+            font-weight: bolder;
+            color: #ccc;
+            /* -webkit-text-stroke: black; */
+            /* -webkit-text-stroke-width: 0.01px; */
+            /* font-size: 2vw; */
+            font-size: 15px;
+            font-weight: bolder;
+        }
+
+        .vertical_animation_top2bottom::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            -webkit-text-stroke: transparent;
+            -webkit-text-stroke-width: 0px;
+            /* font-size: 5vw; */
+            /* left: -10px; */
+            width: 100%;
+            height: 90%;
+            /* font-weight: bolder; */
+            color: green;
+            /* border-bottom: 3px solid blue; */
+            overflow: hidden;
+            animation: textAnimationVertical_top2bottom 5s infinite alternate ease-in-out;
+        }
+
+        @keyframes textAnimationVertical_top2bottom {
+            0% {
+                height: 15%;
+            }
+
+            25% {
+                height: 90%;
+            }
+
+            75% {
+                height: 90%;
+            }
+
+            100% {
+                height: 15%;
+            }
+        }
+
+        .vertical_animation_bottom2top {
+            width: 100%;
+            position: relative;
+            margin: 2px;
+            /* bottom: 25px;
+            left: 2px; */
+            font-weight: bolder;
+            color: green;
+            /* -webkit-text-stroke: black; */
+            /* -webkit-text-stroke-width: 0.01px; */
+            font-size: 15px;
+            font-weight: bolder;
+        }
+
+        .vertical_animation_bottom2top::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* -webkit-text-stroke: black; */
+            /* -webkit-text-stroke-width: 0.; */
+            /* font-size: 5vw; */
+            /* left: -10px; */
+            width: 100%;
+            height: 90%;
+            /* font-weight: bolder; */
+            color: #ccc;
+            /* border-bottom: 3px solid blue; */
+            overflow: hidden;
+            animation: textAnimationVertical_bottom2top 5s infinite alternate ease-in-out;
+        }
+
+        @keyframes textAnimationVertical_bottom2top {
+            0% {
+                /* height: 15%; */
+                height: 90%;
+            }
+
+            25% {
+                height: 15%;
+            }
+
+            75% {
+                height: 15%;
+            }
+
+            100% {
+                height: 90%;
+                /* height: 15%; */
+            }
         }
     </style>
 
@@ -4583,12 +4742,19 @@ flexibility(document.documentElement);
                                     <div class="ast-builder-layout-element ast-flex site-header-focus-item"
                                         data-section="title_tagline">
                                         <div class="site-branding ast-site-identity"
-                                            itemtype="https://schema.org/Organization" itemscope="itemscope">
-                                            <span class="site-logo-img"><a href="../index.html"
-                                                    class="custom-logo-link" rel="home"><img width="110" height="83"
+                                            itemtype="https://schema.org/Organization"
+                                            style="display: flex; flex-direction: column;" itemscope="itemscope">
+                                            <span class="site-logo-img"><a href="../index.html" class="custom-logo-link"
+                                                    rel="home" aria-current="page"><img width="110" height="83"
                                                         src="logo-removebg-preview.png" class="custom-logo"
-                                                        alt="Market Research Advisory" decoding="async"
-                                                        srcset="" /></a></span>
+                                                        alt="Market Research Advisory" decoding="async" srcset=""
+                                                        sizes="(max-width: 110px) 100vw, 110px" /></a></span><br>
+                                            <h5 class='textTypeAnimation' style="cursor: pointer;"
+                                                onclick="window.location.href='tel:8450988560';"
+                                                data-text="For&nbsp;Support&nbsp;:&nbsp;+91&nbsp;8450988560">For Support
+                                                :
+                                                +91&nbsp;8450988560&nbsp;
+                                            </h5>
                                         </div>
                                         <!-- .site-branding -->
                                     </div>
@@ -4609,8 +4775,7 @@ flexibility(document.documentElement);
                                                             class="main-header-menu ast-menu-shadow ast-nav-menu ast-flex  submenu-with-border ast-menu-hover-style-underline  stack-on-mobile">
                                                             <li id="menu-item-3316"
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-3316">
-                                                                <a href="../index.html"
-                                                                    class="menu-link">Home</a>
+                                                                <a href="../index.html" class="menu-link">Home</a>
                                                             </li>
                                                             <li id="menu-item-1476"
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1476">
@@ -4664,12 +4829,30 @@ flexibility(document.documentElement);
                                 <div class="ast-builder-layout-element ast-flex site-header-focus-item"
                                     data-section="title_tagline">
                                     <div class="site-branding ast-site-identity"
-                                        itemtype="https://schema.org/Organization" itemscope="itemscope">
-                                        <span class="site-logo-img"><a href="../index.html"
-                                                class="custom-logo-link" rel="home"><img width="110" height="83"
+                                        itemtype="https://schema.org/Organization"
+                                        style="display: flex; flex-direction: column;" itemscope="itemscope">
+                                        <span class="site-logo-img"><a href="../index.html" class="custom-logo-link"
+                                                rel="home" aria-current="page"><img width="110" height="83"
                                                     src="logo-removebg-preview.png" class="custom-logo"
                                                     alt="Market Research Advisory" decoding="async" srcset=""
-                                                    sizes="(max-width: 110px) 100vw, 110px" /></a></span>
+                                                    sizes="(max-width: 110px) 100vw, 110px" /></a></span><br>
+                                        <h5 id='fonts'
+                                            style="text-align: center; margin-top: 10px; display: flex;flex-direction: column;"
+                                            onclick="window.location.href='tel:8450988560';">
+                                            <b class='vertical_animation_top2bottom'
+                                                data-text="+91&nbsp;8450988560">+91&nbsp;8450988560</b>
+                                            <div
+                                                style="width: 100%; height: 3px; background-color: green; border-radius: 10px;">
+                                                &nbsp;</div>
+                                            <b class='vertical_animation_bottom2top' data-text="For&nbsp;Support">For
+                                                Support</b>
+                                        </h5>
+                                        <!-- <h2 id='fonts'>
+                                            <b className='vertical_animation'
+                                                data-text="BUSINESS">BUSINESS</b>&nbsp;
+                                            <b className='vertical_animation'
+                                                data-text="SOLUTIONS">SOLUTIONS</b>
+                                        </h2> -->
                                     </div>
                                     <!-- .site-branding -->
                                 </div>
@@ -4742,7 +4925,8 @@ flexibility(document.documentElement);
                                             </li>
                                             <li
                                                 class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-4013 current_page_item menu-item-4066">
-                                                <a href="../userConsent/index.html" aria-current="page" class="menu-link">User
+                                                <a href="../userConsent/index.html" aria-current="page"
+                                                    class="menu-link">User
                                                     Consent</a>
                                             </li>
                                             <li
@@ -4898,7 +5082,8 @@ flexibility(document.documentElement);
                                                     data-settings="{&quot;_ob_postman_use&quot;:&quot;no&quot;,&quot;_ob_widget_stalker_use&quot;:&quot;no&quot;,&quot;_ob_poopart_use&quot;:&quot;yes&quot;,&quot;_ob_shadough_use&quot;:&quot;no&quot;,&quot;_ob_allow_hoveranimator&quot;:&quot;no&quot;}"
                                                     data-widget_type="text-editor.default">
                                                     <div class="elementor-widget-container">
-                                                        <p>Market Research Advisory is not responsible for the information
+                                                        <p>Market Research Advisory is not responsible for the
+                                                            information
                                                             and conclusions of the analysis available on it. Although
                                                             all the information on the Web site is presented with utmost
                                                             care, we do not hold any responsibility for the information
@@ -4909,20 +5094,26 @@ flexibility(document.documentElement);
                                                             expert analyst should be relied upon as financial advisor.
                                                             Visitors to Web site must go through Terms and Conditions
                                                             and Disclaimer before making any serious investment-related
-                                                            decisions. Market Research Advisory is not responsible for the
+                                                            decisions. Market Research Advisory is not responsible for
+                                                            the
                                                             errors and omissions on the page. We do not endorse opinions
                                                             of experts which may be their own personal views. Web site
                                                             and management is not to be considered responsible for
                                                             content of the Web site.</p>
-                                                        <p>You agree and understand that use of Market Research Advisory is
+                                                        <p>You agree and understand that use of Market Research Advisory
+                                                            is
                                                             at your risk. Market Research Advisory is not liable to any
                                                             direct, indirect, incidental, consequential, or exemplary
                                                             damages. Failures in the hardware, software, and Internet
                                                             connection can delay the delivery of SMS which is not the
-                                                            responsibility of Market Research Advisory. SMS of Market Research Advisory is not supposed to be forwarded directly to any
+                                                            responsibility of Market Research Advisory. SMS of Market
+                                                            Research Advisory is not supposed to be forwarded directly
+                                                            to any
                                                             individual or firm to send suggestions. This can invite
                                                             serious legal actions. Any dispute will be solved in the
-                                                            territory of India only at Thane, Navi Mumbai. Market Research Advisory reserves the right to modify Terms and Conditions
+                                                            territory of India only at Thane, Navi Mumbai. Market
+                                                            Research Advisory reserves the right to modify Terms and
+                                                            Conditions
                                                             and Privacy Policy. All the information, analysis reports,
                                                             and articles on the Web site are only to inform the customer
                                                             and should be used at owns risk.</p>
@@ -4936,24 +5127,32 @@ flexibility(document.documentElement);
                                                             have thoroughly gone through the disclaimer and terms and
                                                             conditions.</p>
                                                         <p><strong>STANDARD DISCLOSURE/DISCLAIMER</strong></p>
-                                                        <p>Market Research Advisory does not receive any consideration by way
+                                                        <p>Market Research Advisory does not receive any consideration
+                                                            by way
                                                             of remuneration or compensation or in any other form
                                                             whatsoever, by us or any of our associates or subsidiaries
                                                             for any distribution or execution services in respect of the
                                                             products or securities for which the research service is
-                                                            provided to the client. Market Research Advisory does not provide
+                                                            provided to the client. Market Research Advisory does not
+                                                            provide
                                                             any order execution services to any user/subscriber. If any
-                                                            person offers an order execution service in the name of Market Research Advisory, the user should immediately deny such
+                                                            person offers an order execution service in the name of
+                                                            Market Research Advisory, the user should immediately deny
+                                                            such
                                                             services and report to us about the same. If the
-                                                            user/subscriber accepts such services, then Market Research Advisory or its promoter/s, employees, representatives,
+                                                            user/subscriber accepts such services, then Market Research
+                                                            Advisory or its promoter/s, employees, representatives,
                                                             and/or stakeholders are not responsible for any losses/gains
                                                             or any outcome that may arise due to any such activities.
-                                                            The user/subscriber agrees to indemnify Market Research Advisory
+                                                            The user/subscriber agrees to indemnify Market Research
+                                                            Advisory
                                                             or its promoter/s, employees, representatives, and/or
                                                             stakeholders from any losses or damages that the user may
                                                             incur from any such execution services activities agreed
                                                             upon by the user on his/her/their own accord. The user
-                                                            agrees that he/she/they have taken services offered by Market Research Advisory or any of its subsidiaries only after having
+                                                            agrees that he/she/they have taken services offered by
+                                                            Market Research Advisory or any of its subsidiaries only
+                                                            after having
                                                             read and accepted the term and conditions of services
                                                             provided by us.</p>
                                                         <p>Market Research Advisory does not recommend a stock/commodity
@@ -5004,10 +5203,12 @@ flexibility(document.documentElement);
                                                             our executives or otherwise under any circumstances shall be
                                                             considered as research services by our organization.</p>
                                                         <p><strong><em><u>Standard Disclaimer:</u></em></strong></p>
-                                                        <p>Market Research Advisory is an independent SEBI (Securities and
+                                                        <p>Market Research Advisory is an independent SEBI (Securities
+                                                            and
                                                             Exchange Board of India) registered equity research
                                                             providing firm operating under the license of it’s
-                                                            proprietor. Market Research Advisory or its promoter, employees,
+                                                            proprietor. Market Research Advisory or its promoter,
+                                                            employees,
                                                             directors &amp; stakeholders may have had or may have in
                                                             future positions in the stocks/instruments covered by us in
                                                             our research reports/communications.</p>
@@ -5140,11 +5341,9 @@ flexibility(document.documentElement);
                                         </div>
                                     </section>
                                     <section id="media_image-1" class="widget widget_media_image"><img width="300"
-                                            height="300"
-                                            src="../logo.svg"
+                                            height="300" src="../logo.svg"
                                             class="image wp-image-4408  attachment-medium size-medium" alt=""
-                                            style="max-width: 100%; height: auto;" decoding="async"
-                                            srcset=""
+                                            style="max-width: 100%; height: auto;" decoding="async" srcset=""
                                             sizes="(max-width: 300px) 100vw, 300px" /></section>
                                 </div>
                             </aside>
@@ -5161,28 +5360,33 @@ flexibility(document.documentElement);
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-3310 current_page_item menu-item-3315">
                                                     <a href="../index.html" aria-current="page" class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
-                                                            aria-hidden="true"></i><span>Home</span></a></li>
+                                                            aria-hidden="true"></i><span>Home</span></a>
+                                                </li>
                                                 <li id="menu-item-2371"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2371">
                                                     <a href="../about/index.html" class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
-                                                            aria-hidden="true"></i><span>About Us</span></a></li>
+                                                            aria-hidden="true"></i><span>About Us</span></a>
+                                                </li>
                                                 <li id="menu-item-2373"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2373">
                                                     <a href="../pricing/index.html" class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
-                                                            aria-hidden="true"></i><span>Packages</span></a></li>
+                                                            aria-hidden="true"></i><span>Packages</span></a>
+                                                </li>
                                                 <li id="menu-item-2374"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2374">
                                                     <a href="../footer_contents/RefundPolicy.html" class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
-                                                            aria-hidden="true"></i><span>Refund Policy</span></a></li>
+                                                            aria-hidden="true"></i><span>Refund Policy</span></a>
+                                                </li>
                                                 <li id="menu-item-4067"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4067">
                                                     <a href="../footer_contents/PrivacyNpolicy.html"
                                                         class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
-                                                            aria-hidden="true"></i><span>Privacy Policy</span></a></li>
+                                                            aria-hidden="true"></i><span>Privacy Policy</span></a>
+                                                </li>
                                                 <li id="menu-item-4068"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4068">
                                                     <a href="../footer_contents/LigalDisclamer.html"
@@ -5194,19 +5398,22 @@ flexibility(document.documentElement);
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4069">
                                                     <a href="../userConsent/index.html" class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
-                                                            aria-hidden="true"></i><span>User Consent</span></a></li>
+                                                            aria-hidden="true"></i><span>User Consent</span></a>
+                                                </li>
                                                 <li id="menu-item-4201"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4201">
                                                     <a href="../footer_contents/RegisterdReasearchAnalysis.html"
                                                         class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
                                                             aria-hidden="true"></i><span>Registered Research
-                                                            Analyst</span></a></li>
+                                                            Analyst</span></a>
+                                                </li>
                                                 <li id="menu-item-2372"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2372">
                                                     <a href="../ContectUs/index.html" class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
-                                                            aria-hidden="true"></i><span>Contact Us</span></a></li>
+                                                            aria-hidden="true"></i><span>Contact Us</span></a>
+                                                </li>
                                                 <li id="menu-item-4179"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4179">
                                                     <a href="../footer_contents/InvestorCharter.html"
@@ -5216,8 +5423,7 @@ flexibility(document.documentElement);
                                                 </li>
                                                 <li id="menu-item-4181"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4181">
-                                                    <a href="../footer_contents/DosNDosnt.html"
-                                                        class="menu-link"><i
+                                                    <a href="../footer_contents/DosNDosnt.html" class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
                                                             aria-hidden="true"></i><span>Do’s &#038; Don’ts</span></a>
                                                 </li>
@@ -5227,21 +5433,24 @@ flexibility(document.documentElement);
                                                         class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
                                                             aria-hidden="true"></i><span>Advertisement
-                                                            Disclaimer</span></a></li>
+                                                            Disclaimer</span></a>
+                                                </li>
                                                 <li id="menu-item-4219"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4219">
                                                     <a href="../footer_contents/GrivanceRedressalProcess.html"
                                                         class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
                                                             aria-hidden="true"></i><span>Grievance Redressal
-                                                            Process</span></a></li>
+                                                            Process</span></a>
+                                                </li>
                                                 <li id="menu-item-4220"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4220">
                                                     <a href="../footer_contents/TermsConditions.html"
                                                         class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
                                                             aria-hidden="true"></i><span>Terms &#038;
-                                                            Conditions</span></a></li>
+                                                            Conditions</span></a>
+                                                </li>
                                             </ul>
                                         </nav>
                                     </section>
@@ -5355,8 +5564,9 @@ flexibility(document.documentElement);
 
     </div>
 
-    <div id="ast-scroll-top" tabindex="0" class="ast-scroll-to-top-right" style="border-radius: 50%; scale: 1.5;" data-on-devices="both">
-        <i class="fa-solid fa-arrow-up" ></i>
+    <div id="ast-scroll-top" tabindex="0" class="ast-scroll-to-top-right" style="border-radius: 50%; scale: 1.5;"
+        data-on-devices="both">
+        <i class="fa-solid fa-arrow-up"></i>
     </div>
     <!-- Click to Chat - https://holithemes.com/plugins/click-to-chat/  v4.12.1 -->
     <div class="ht-ctc ht-ctc-chat ctc-analytics ctc_wp_mobile style-2  " id="ht-ctc-chat"
@@ -5388,7 +5598,7 @@ flexibility(document.documentElement);
         </div>
     </div>
     <span class="ht_ctc_chat_data" data-no_number=""
-        data-settings="{&quot;number&quot;:&quot;917304231283&quot;,&quot;pre_filled&quot;:&quot;&quot;,&quot;dis_m&quot;:&quot;show&quot;,&quot;dis_d&quot;:&quot;show&quot;,&quot;css&quot;:&quot;display: none; cursor: pointer; z-index: 99999999;&quot;,&quot;pos_d&quot;:&quot;position: fixed; bottom: 26px; left: 15px;&quot;,&quot;pos_m&quot;:&quot;position: fixed; bottom: 26px; left: 15px;&quot;,&quot;schedule&quot;:&quot;no&quot;,&quot;se&quot;:150,&quot;ani&quot;:&quot;no-animations&quot;,&quot;url_target_d&quot;:&quot;_blank&quot;,&quot;ga&quot;:&quot;yes&quot;,&quot;fb&quot;:&quot;yes&quot;,&quot;g_init&quot;:&quot;default&quot;,&quot;g_an_event_name&quot;:&quot;chat: {number}&quot;,&quot;pixel_event_name&quot;:&quot;Click to Chat by HoliThemes&quot;}"></span>
+        data-settings="{&quot;number&quot;:&quot;919819596352&quot;,&quot;pre_filled&quot;:&quot;&quot;,&quot;dis_m&quot;:&quot;show&quot;,&quot;dis_d&quot;:&quot;show&quot;,&quot;css&quot;:&quot;display: none; cursor: pointer; z-index: 99999999;&quot;,&quot;pos_d&quot;:&quot;position: fixed; bottom: 26px; left: 15px;&quot;,&quot;pos_m&quot;:&quot;position: fixed; bottom: 26px; left: 15px;&quot;,&quot;schedule&quot;:&quot;no&quot;,&quot;se&quot;:150,&quot;ani&quot;:&quot;no-animations&quot;,&quot;url_target_d&quot;:&quot;_blank&quot;,&quot;ga&quot;:&quot;yes&quot;,&quot;fb&quot;:&quot;yes&quot;,&quot;g_init&quot;:&quot;default&quot;,&quot;g_an_event_name&quot;:&quot;chat: {number}&quot;,&quot;pixel_event_name&quot;:&quot;Click to Chat by HoliThemes&quot;}"></span>
     <script type='text/javascript'>
         const lazyloadRunObserver = () => {
             const lazyloadBackgrounds = document.querySelectorAll(`.e-con.e-parent:not(.e-lazyloaded)`);
@@ -5461,7 +5671,7 @@ flexibility(document.documentElement);
         id="astra-theme-js-js"></script>
     <script id="ht_ctc_app_js-js-extra">
         var ht_ctc_chat_var = {
-            "number": "917304231283",
+            "number": "919819596352",
             "pre_filled": "",
             "dis_m": "show",
             "dis_d": "show",

@@ -4433,7 +4433,7 @@ flexibility(document.documentElement);
             height: 50px;
             width: 50px;
             border: transparent solid 1px;
-            background: linear-gradient(180deg, #01dc0c , #01ab0a);
+            background: linear-gradient(180deg, #01dc0c, #01ab0a);
             filter: brightness(110%);
             backdrop-filter: blur(5px);
             /* backdrop-filter: blur; */
@@ -4491,6 +4491,165 @@ flexibility(document.documentElement);
 
         a.RightStickyBtn:hover {
             color: #fff;
+        }
+
+        .textTypeAnimation {
+            /* width: 72%; */
+            width: fit-content;
+            position: relative;
+            color: #a0a0a0;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke: green;
+            /* -webkit-text-stroke-width: 2px; */
+            /* color: rgb(255, 145, 0); */
+            font-size: 1.3vw;
+            font-weight: bolder;
+            margin-bottom: 30px;
+        }
+
+        .textTypeAnimation::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* font-size: 5vw; */
+            /* left: -10px; */
+            width: 0%;
+            height: 90%;
+            /* font-weight: bolder; */
+            color: green;
+            border-right: 2.5px solid green;
+            overflow: hidden;
+            animation: textAnimation 10s infinite alternate ease-in-out;
+        }
+
+        @keyframes textAnimation {
+            0% {
+                width: 0%;
+            }
+
+            20% {
+                width: 100%;
+            }
+
+            80% {
+                width: 100%;
+            }
+
+            100% {
+                width: 0%;
+            }
+        }
+
+        /* for small screen support animation */
+        /* #business_solutinos { */
+        /* #fonts {
+            margin-top: -45px;
+            /* margin-left: -30%; 
+        } */
+
+        /* .textTypeAnimation_business { */
+        .vertical_animation_top2bottom {
+            width: 100%;
+            position: relative;
+            margin: 2px;
+            /* bottom: 25px;
+            left: 2px; */
+            font-weight: bolder;
+            color: #ccc;
+            /* -webkit-text-stroke: black; */
+            /* -webkit-text-stroke-width: 0.01px; */
+            /* font-size: 2vw; */
+            font-size: 15px;
+            font-weight: bolder;
+        }
+
+        .vertical_animation_top2bottom::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            -webkit-text-stroke: transparent;
+            -webkit-text-stroke-width: 0px;
+            /* font-size: 5vw; */
+            /* left: -10px; */
+            width: 100%;
+            height: 90%;
+            /* font-weight: bolder; */
+            color: green;
+            /* border-bottom: 3px solid blue; */
+            overflow: hidden;
+            animation: textAnimationVertical_top2bottom 5s infinite alternate ease-in-out;
+        }
+
+        @keyframes textAnimationVertical_top2bottom {
+            0% {
+                height: 15%;
+            }
+
+            25% {
+                height: 90%;
+            }
+
+            75% {
+                height: 90%;
+            }
+
+            100% {
+                height: 15%;
+            }
+        }
+
+        .vertical_animation_bottom2top {
+            width: 100%;
+            position: relative;
+            margin: 2px;
+            /* bottom: 25px;
+            left: 2px; */
+            font-weight: bolder;
+            color: green;
+            /* -webkit-text-stroke: black; */
+            /* -webkit-text-stroke-width: 0.01px; */
+            font-size: 15px;
+            font-weight: bolder;
+        }
+
+        .vertical_animation_bottom2top::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* -webkit-text-stroke: black; */
+            /* -webkit-text-stroke-width: 0.; */
+            /* font-size: 5vw; */
+            /* left: -10px; */
+            width: 100%;
+            height: 90%;
+            /* font-weight: bolder; */
+            color: #ccc;
+            /* border-bottom: 3px solid blue; */
+            overflow: hidden;
+            animation: textAnimationVertical_bottom2top 5s infinite alternate ease-in-out;
+        }
+
+        @keyframes textAnimationVertical_bottom2top {
+            0% {
+                /* height: 15%; */
+                height: 90%;
+            }
+
+            25% {
+                height: 15%;
+            }
+
+            75% {
+                height: 15%;
+            }
+
+            100% {
+                height: 90%;
+                /* height: 15%; */
+            }
         }
     </style>
 
@@ -4583,12 +4742,19 @@ flexibility(document.documentElement);
                                     <div class="ast-builder-layout-element ast-flex site-header-focus-item"
                                         data-section="title_tagline">
                                         <div class="site-branding ast-site-identity"
-                                            itemtype="https://schema.org/Organization" itemscope="itemscope">
-                                            <span class="site-logo-img"><a href="../index.html"
-                                                    class="custom-logo-link" rel="home"><img width="110" height="83"
+                                            itemtype="https://schema.org/Organization"
+                                            style="display: flex; flex-direction: column;" itemscope="itemscope">
+                                            <span class="site-logo-img"><a href="../index.html" class="custom-logo-link"
+                                                    rel="home" aria-current="page"><img width="110" height="83"
                                                         src="logo-removebg-preview.png" class="custom-logo"
-                                                        alt="Market Research Advisory" decoding="async"
-                                                        srcset="" /></a></span>
+                                                        alt="Market Research Advisory" decoding="async" srcset=""
+                                                        sizes="(max-width: 110px) 100vw, 110px" /></a></span><br>
+                                            <h5 class='textTypeAnimation' style="cursor: pointer;"
+                                                onclick="window.location.href='tel:8450988560';"
+                                                data-text="For&nbsp;Support&nbsp;:&nbsp;+91&nbsp;8450988560">For Support
+                                                :
+                                                +91&nbsp;8450988560&nbsp;
+                                            </h5>
                                         </div>
                                         <!-- .site-branding -->
                                     </div>
@@ -4609,8 +4775,7 @@ flexibility(document.documentElement);
                                                             class="main-header-menu ast-menu-shadow ast-nav-menu ast-flex  submenu-with-border ast-menu-hover-style-underline  stack-on-mobile">
                                                             <li id="menu-item-3316"
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-3316">
-                                                                <a href="../index.html"
-                                                                    class="menu-link">Home</a>
+                                                                <a href="../index.html" class="menu-link">Home</a>
                                                             </li>
                                                             <li id="menu-item-1476"
                                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1476">
@@ -4664,12 +4829,30 @@ flexibility(document.documentElement);
                                 <div class="ast-builder-layout-element ast-flex site-header-focus-item"
                                     data-section="title_tagline">
                                     <div class="site-branding ast-site-identity"
-                                        itemtype="https://schema.org/Organization" itemscope="itemscope">
-                                        <span class="site-logo-img"><a href="../index.html"
-                                                class="custom-logo-link" rel="home"><img width="110" height="83"
+                                        itemtype="https://schema.org/Organization"
+                                        style="display: flex; flex-direction: column;" itemscope="itemscope">
+                                        <span class="site-logo-img"><a href="../index.html" class="custom-logo-link"
+                                                rel="home" aria-current="page"><img width="110" height="83"
                                                     src="logo-removebg-preview.png" class="custom-logo"
                                                     alt="Market Research Advisory" decoding="async" srcset=""
-                                                    sizes="(max-width: 110px) 100vw, 110px" /></a></span>
+                                                    sizes="(max-width: 110px) 100vw, 110px" /></a></span><br>
+                                        <h5 id='fonts'
+                                            style="text-align: center; margin-top: 10px; display: flex;flex-direction: column;"
+                                            onclick="window.location.href='tel:8450988560';">
+                                            <b class='vertical_animation_top2bottom'
+                                                data-text="+91&nbsp;8450988560">+91&nbsp;8450988560</b>
+                                            <div
+                                                style="width: 100%; height: 3px; background-color: green; border-radius: 10px;">
+                                                &nbsp;</div>
+                                            <b class='vertical_animation_bottom2top' data-text="For&nbsp;Support">For
+                                                Support</b>
+                                        </h5>
+                                        <!-- <h2 id='fonts'>
+                                            <b className='vertical_animation'
+                                                data-text="BUSINESS">BUSINESS</b>&nbsp;
+                                            <b className='vertical_animation'
+                                                data-text="SOLUTIONS">SOLUTIONS</b>
+                                        </h2> -->
                                     </div>
                                     <!-- .site-branding -->
                                 </div>
@@ -4742,7 +4925,8 @@ flexibility(document.documentElement);
                                             </li>
                                             <li
                                                 class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-4013 current_page_item menu-item-4066">
-                                                <a href="../userConsent/index.html" aria-current="page" class="menu-link">User
+                                                <a href="../userConsent/index.html" aria-current="page"
+                                                    class="menu-link">User
                                                     Consent</a>
                                             </li>
                                             <li
@@ -4900,19 +5084,22 @@ flexibility(document.documentElement);
                                                     <div class="elementor-widget-container">
                                                         <div>Terms &amp; Conditions</div>
                                                         <div>&nbsp;</div>
-                                                        <div>Market Research Advisory” or “Research Entity” is regulated by
+                                                        <div>Market Research Advisory” or “Research Entity” is regulated
+                                                            by
                                                             the Securities and Exchange Board of India (“SEBI”) and is
                                                             licensed to carry on the business of share trading research
                                                             providing service and related activities. The term “you”
                                                             refers to the user or viewer of our website. Before
                                                             subscribing our any of the services we advise you to please
-                                                            visit our website https://marketresearchadvisory.com/ and read
+                                                            visit our website https://marketresearchadvisory.com/ and
+                                                            read
                                                             all terms &amp; conditions carefully. By subscribing our any
                                                             of the services you agree to be bound by the terms &amp;
                                                             conditions. We may change these terms and conditions at any
                                                             time without prior information/intimation.</div>
                                                         <div>&nbsp;</div>
-                                                        <div>Your continuous use of https://marketresearchadvisory.com/ means
+                                                        <div>Your continuous use of https://marketresearchadvisory.com/
+                                                            means
                                                             that you accept any new or modified terms and conditions
                                                             that we come up with. Please re-visit the `Terms &amp;
                                                             Conditions’ link on our website from time to time to stay
@@ -4931,13 +5118,15 @@ flexibility(document.documentElement);
                                                             absolutely no refund &amp; cancellations. We do not offer
                                                             refunds on subscriptions that have already been taken. By
                                                             registering for service on the website
-                                                            https://marketresearchadvisory.com/ you have accepted all the
+                                                            https://marketresearchadvisory.com/ you have accepted all
+                                                            the
                                                             terms and conditions.</div>
                                                         <div>&nbsp;</div>
                                                         <div>Other disclaimers: –</div>
                                                         <div>&nbsp;</div>
                                                         <div>Without prejudice to the generality of the foregoing
-                                                            paragraph, Market Research Advisory and its owner, directors,
+                                                            paragraph, Market Research Advisory and its owner,
+                                                            directors,
                                                             employees, affiliates and associates state that: The
                                                             information analysis given in the research recommendation or
                                                             research report is purely an interpretation / view of the
@@ -4949,13 +5138,19 @@ flexibility(document.documentElement);
                                                             reports. Any comparative indices that are made available on
                                                             the Website are mere indicators and are in no manner meant
                                                             to reflect or influence the buying decision of the
-                                                            customers. Market Research Advisory and its owner, directors,
-                                                            employees, affiliates and associates and or the Market Research Advisory do not in any manner whatsoever verify or vouch for
+                                                            customers. Market Research Advisory and its owner,
+                                                            directors,
+                                                            employees, affiliates and associates and or the Market
+                                                            Research Advisory do not in any manner whatsoever verify or
+                                                            vouch for
                                                             the accuracy or authenticity of the results. While doing
                                                             fund transfer, the respective bank shall be responsible for
                                                             transfer of funds during payment for research services on
-                                                            the Website and Market Research Advisory and its owner, directors,
-                                                            employees, affiliates and associates and or the Market Research Advisory shall not be responsible or liable in any manner
+                                                            the Website and Market Research Advisory and its owner,
+                                                            directors,
+                                                            employees, affiliates and associates and or the Market
+                                                            Research Advisory shall not be responsible or liable in any
+                                                            manner
                                                             whatsoever for the late payments or losses incurred on
                                                             account of the same Nothing on this website constitutes, or
                                                             is meant to constitute, advice of any kind. If you require
@@ -4964,10 +5159,12 @@ flexibility(document.documentElement);
                                                             appropriate professional Disclaimer for reports:</div>
                                                         <div>&nbsp;</div>
                                                         <div>The documents/reports/research analysis available on the
-                                                            Website or published/produced by Market Research Advisory does not
+                                                            Website or published/produced by Market Research Advisory
+                                                            does not
                                                             constitute an offer or solicitation for the purchase or sale
                                                             of any Security / financial instrument or as an official
-                                                            confirmation of any transaction. Market Research Advisory and its
+                                                            confirmation of any transaction. Market Research Advisory
+                                                            and its
                                                             owner, directors, employees, affiliates and associates and
                                                             or the Market Research Advisory shall not be in any way
                                                             responsible for any loss or damage that may arise to any
@@ -4990,14 +5187,19 @@ flexibility(document.documentElement);
                                                             documents/reports/research analysis and there can be no
                                                             assurance that future results or events will be consistent
                                                             with this information. The information is subject to change
-                                                            without any prior notice. Market Research Advisory and its owner,
+                                                            without any prior notice. Market Research Advisory and its
+                                                            owner,
                                                             directors, employees, affiliates and associates and or the
-                                                            Market Research Advisory reserves the right to make modifications
+                                                            Market Research Advisory reserves the right to make
+                                                            modifications
                                                             and alterations to this statement as may be required from
-                                                            time to time. However, Market Research Advisory and its owner,
+                                                            time to time. However, Market Research Advisory and its
+                                                            owner,
                                                             directors, employees, affiliates and associates and /or the
-                                                            Market Research Advisory are under no obligation to update or keep
-                                                            the information current. Neither Market Research Advisory nor any
+                                                            Market Research Advisory are under no obligation to update
+                                                            or keep
+                                                            the information current. Neither Market Research Advisory
+                                                            nor any
                                                             of its owners, directors, employees, agents or
                                                             representatives shall be liable for any damages whether
                                                             direct, indirect, special or consequential including lost
@@ -5006,19 +5208,25 @@ flexibility(document.documentElement);
                                                             reference to any third party in this material no such party
                                                             will assume any liability for the same. All layout, design,
                                                             original artwork, concepts and other Intellectual
-                                                            Properties, remains the property and copyright of Market Research Advisory and may not be used in any form or for any purpose
+                                                            Properties, remains the property and copyright of Market
+                                                            Research Advisory and may not be used in any form or for any
+                                                            purpose
                                                             whatsoever by any party without the express written
                                                             permission of the copyright holders. This is a private
-                                                            website owned by Market Research Advisory. Unauthorized scanning
+                                                            website owned by Market Research Advisory. Unauthorized
+                                                            scanning
                                                             of vulnerabilities and exploitation of the same is strictly
-                                                            prohibited. If you have been found to do so, Market Research Advisory may bring Civil and/or Criminal action and/or legal
+                                                            prohibited. If you have been found to do so, Market Research
+                                                            Advisory may bring Civil and/or Criminal action and/or legal
                                                             proceedings against you which shall be entirely at your
                                                             costs and consequences.</div>
                                                         <div>&nbsp;</div>
                                                         <div>Liability Limitations</div>
                                                         <div>&nbsp;</div>
                                                         <div>Market Research Advisory firm and its owner, directors,
-                                                            employees, affiliates and associates and or the Market Research Advisory firm will not be liable to you (whether under the
+                                                            employees, affiliates and associates and or the Market
+                                                            Research Advisory firm will not be liable to you (whether
+                                                            under the
                                                             law of contract, the law of torts or otherwise under any
                                                             other law) in relation to the contents of, or use of, or
                                                             otherwise in connection with, this Website:</div>
@@ -5029,8 +5237,10 @@ flexibility(document.documentElement);
                                                             relationships, loss of reputation or goodwill, or loss or
                                                             corruption of information or data.</div>
                                                         <div>&nbsp;</div>
-                                                        <div>These limitations of liability apply even if Market Research Advisory firm and its owner, directors, employees,
-                                                            affiliates and associates and or the Market Research Advisory
+                                                        <div>These limitations of liability apply even if Market
+                                                            Research Advisory firm and its owner, directors, employees,
+                                                            affiliates and associates and or the Market Research
+                                                            Advisory
                                                             have been expressly advised of the potential loss.</div>
                                                         <div>&nbsp;</div>
                                                         <div>Reasonableness: –</div>
@@ -5042,17 +5252,21 @@ flexibility(document.documentElement);
                                                         <div>&nbsp;</div>
                                                         <div>Other Parties: –</div>
                                                         <div>&nbsp;</div>
-                                                        <div>You accept that Market Research Advisory firm has an interest in
+                                                        <div>You accept that Market Research Advisory firm has an
+                                                            interest in
                                                             limiting the personal liability of its owner, officers,
                                                             employees, directors, affiliates and group companies. You
                                                             agree that you will not bring any claim personally against
                                                             Market Research Advisory firm and its owner, directors,
-                                                            employees, affiliates and associates and or the Market Research Advisory firm in respect of any losses you suffer in
+                                                            employees, affiliates and associates and or the Market
+                                                            Research Advisory firm in respect of any losses you suffer
+                                                            in
                                                             connection with the website.</div>
                                                         <div>&nbsp;</div>
                                                         <div>Without prejudice to the foregoing paragraph, you agree
                                                             that the limitations of warranties and liability set out in
-                                                            this website disclaimer will protect Market Research Advisory
+                                                            this website disclaimer will protect Market Research
+                                                            Advisory
                                                             firm and its owner, directors, employees, affiliates and
                                                             associates and or the Market Research Advisory firm.</div>
                                                         <div>&nbsp;</div>
@@ -5079,19 +5293,23 @@ flexibility(document.documentElement);
                                                         <div>&nbsp;</div>
                                                         <div>Your privacy is important to Market Research Advisory. This
                                                             privacy statement provides information about the personal
-                                                            information that Market Research Advisory collects, and the ways
-                                                            in which Market Research Advisory uses that personal information.
+                                                            information that Market Research Advisory collects, and the
+                                                            ways
+                                                            in which Market Research Advisory uses that personal
+                                                            information.
                                                         </div>
                                                         <div>&nbsp;</div>
                                                         <div>Personal information collection</div>
                                                         <div>&nbsp;</div>
-                                                        <div>Market Research Advisory may collect and use the following kinds
+                                                        <div>Market Research Advisory may collect and use the following
+                                                            kinds
                                                             of personal information:</div>
                                                         <div>&nbsp;</div>
                                                         <div>Information about your use of this website</div>
                                                         <div>&nbsp;</div>
                                                         <div>Information that you provide using for the purpose of
-                                                            registering with Market Research Advisory (“the Website”).</div>
+                                                            registering with Market Research Advisory (“the Website”).
+                                                        </div>
                                                         <div>&nbsp;</div>
                                                         <div>Information about transactions carried out over this
                                                             Website.</div>
@@ -5099,12 +5317,14 @@ flexibility(document.documentElement);
                                                         <div>Information that you provide for the purpose of subscribing
                                                             to the Website services.</div>
                                                         <div>&nbsp;</div>
-                                                        <div>Any other information that you send to Market Research Advisory.
+                                                        <div>Any other information that you send to Market Research
+                                                            Advisory.
                                                         </div>
                                                         <div>&nbsp;</div>
                                                         <div>Using personal information.</div>
                                                         <div>&nbsp;</div>
-                                                        <div>Market Research Advisory may use your personal information to: –
+                                                        <div>Market Research Advisory may use your personal information
+                                                            to: –
                                                         </div>
                                                         <div>&nbsp;</div>
                                                         <div>Administer this Website.</div>
@@ -5122,15 +5342,20 @@ flexibility(document.documentElement);
                                                             information to its employees/agents or sub-contractors for
                                                             the above purposes, the agent or sub-contractor in question
                                                             will be obligated to use that personal information in
-                                                            accordance with the terms of this privacy statement. Market Research Advisory shall or its agents and/or sub-contractors
+                                                            accordance with the terms of this privacy statement. Market
+                                                            Research Advisory shall or its agents and/or sub-contractors
                                                             may use your personal information to make contact with you
-                                                            for promotion of products/schemes/Services etc. of Market Research Advisory or of its partners from time to time. You
+                                                            for promotion of products/schemes/Services etc. of Market
+                                                            Research Advisory or of its partners from time to time. You
                                                             hereby agree and understand that such promotional calls
-                                                            shall be made to you unless you specifically convey to Market Research Advisory to not call you further for such promotions,
+                                                            shall be made to you unless you specifically convey to
+                                                            Market Research Advisory to not call you further for such
+                                                            promotions,
                                                             schemes, services etc.</div>
                                                         <div>&nbsp;</div>
                                                         <div>In addition to the disclosures reasonably necessary for the
-                                                            purposes identified elsewhere above, Market Research Advisory may
+                                                            purposes identified elsewhere above, Market Research
+                                                            Advisory may
                                                             disclose your personal information to the extent that it is
                                                             required to do so by law, in connection with any legal
                                                             proceedings or prospective legal proceedings, and in order
@@ -5142,7 +5367,8 @@ flexibility(document.documentElement);
                                                             organizational precautions to prevent the loss, misuse or
                                                             alteration of your personal information.</div>
                                                         <div>&nbsp;</div>
-                                                        <div>Market Research Advisory will store all the personal information
+                                                        <div>Market Research Advisory will store all the personal
+                                                            information
                                                             you provide on its secure servers.</div>
                                                         <div>&nbsp;</div>
                                                         <div>Information relating to electronic transactions entered
@@ -5151,9 +5377,11 @@ flexibility(document.documentElement);
                                                         <div>&nbsp;</div>
                                                         <div>Cross-border data transfers: –</div>
                                                         <div>&nbsp;</div>
-                                                        <div>Information that Market Research Advisory collects may be stored
+                                                        <div>Information that Market Research Advisory collects may be
+                                                            stored
                                                             and processed in and transferred between any of the
-                                                            countries in which Market Research Advisory operates (if at all)
+                                                            countries in which Market Research Advisory operates (if at
+                                                            all)
                                                             to enable the use of the information in accordance with this
                                                             privacy policy.</div>
                                                         <div>&nbsp;</div>
@@ -5171,7 +5399,9 @@ flexibility(document.documentElement);
                                                         <div>&nbsp;</div>
                                                         <div>Other websites: –</div>
                                                         <div>&nbsp;</div>
-                                                        <div>This website contains links to other websites. Market Research Advisory is/are not responsible for the privacy policies or
+                                                        <div>This website contains links to other websites. Market
+                                                            Research Advisory is/are not responsible for the privacy
+                                                            policies or
                                                             practices of any third party.</div>
                                                         <div>&nbsp;</div>
                                                         <div>If you have any questions about this privacy policy or
@@ -5194,7 +5424,9 @@ flexibility(document.documentElement);
                                                         <div>&nbsp;</div>
                                                         <div>REGISTRATION / ENROLMENT AND TERMINATION: –</div>
                                                         <div>&nbsp;</div>
-                                                        <div>By registering for this facility you understand that Market Research Advisory firm and its owner, directors, employees and
+                                                        <div>By registering for this facility you understand that Market
+                                                            Research Advisory firm and its owner, directors, employees
+                                                            and
                                                             associates (hereinafter singly and jointly referred to as
                                                             “Market Research Advisory”) reserves the right, in its sole
                                                             discretion, to deny you access to this Website or any
@@ -5202,12 +5434,15 @@ flexibility(document.documentElement);
                                                             any unauthorized access or use by you (b) if you assign or
                                                             transfer (or attempt the same) any rights granted to you
                                                             under this User Agreement or any other agreement that you
-                                                            may have entered with Market Research Advisory; © if you violate
+                                                            may have entered with Market Research Advisory; © if you
+                                                            violate
                                                             any of the other terms and conditions of this User
                                                             Agreement. Termination or cancellation of this Agreement
-                                                            shall not affect any right or relief to which Market Research Advisory may be entitled, at law or in equity. Upon
+                                                            shall not affect any right or relief to which Market
+                                                            Research Advisory may be entitled, at law or in equity. Upon
                                                             termination of this User Agreement, all rights granted to
-                                                            you will terminate and revert to Market Research Advisory.</div>
+                                                            you will terminate and revert to Market Research Advisory.
+                                                        </div>
                                                         <div>&nbsp;</div>
                                                         <div>LICENSE: –</div>
                                                         <div>&nbsp;</div>
@@ -5221,7 +5456,8 @@ flexibility(document.documentElement);
                                                         <div>SECURITY: –</div>
                                                         <div>&nbsp;</div>
                                                         <div>Unauthorized use of this Website and systems, including,
-                                                            but not limited to, unauthorized entry into Market Research Advisory’s systems, online accounts, Client Desks, Partners
+                                                            but not limited to, unauthorized entry into Market Research
+                                                            Advisory’s systems, online accounts, Client Desks, Partners
                                                             &amp; Distributor Desks, misuse of passwords or misuse of
                                                             any other information, is strictly prohibited. You may not
                                                             use this Website in any manner that could damage, disable,
@@ -5235,17 +5471,21 @@ flexibility(document.documentElement);
                                                             The users have the primary responsibility to keep their
                                                             login-ids and passwords secure and to not display such
                                                             crucial, important information to any third person. In case
-                                                            of any such leak of login-id &amp; password, Market Research Advisory cannot be responsible for the loss of such
+                                                            of any such leak of login-id &amp; password, Market Research
+                                                            Advisory cannot be responsible for the loss of such
                                                             information, or for any act, omission, damages, claims, loss
                                                             of personal information, etc. arising from the use of such
-                                                            leakage of login-ids and passwords. Market Research Advisory may,
+                                                            leakage of login-ids and passwords. Market Research Advisory
+                                                            may,
                                                             at its own discretion, use certain technology on its web
                                                             sites to collect information from visitors and may compile
                                                             aggregate statistical information about how visitors use its
                                                             web sites, including information relating to the frequency
                                                             of visits, the average length of visits, which pages are
                                                             viewed during a visit. No individually identifiable
-                                                            information is collected for this purpose and Market Research Advisory does not monitor individual visitor behaviour.
+                                                            information is collected for this purpose and Market
+                                                            Research Advisory does not monitor individual visitor
+                                                            behaviour.
                                                         </div>
                                                         <div>&nbsp;</div>
                                                         <div>SERVICE DELAYS: –</div>
@@ -5256,24 +5496,29 @@ flexibility(document.documentElement);
                                                             materials and descriptions on this web site and to suspend
                                                             and/or deny access to this web site for scheduled or
                                                             unscheduled maintenance, upgrades, improvements or
-                                                            corrections. Market Research Advisory may discontinue or change
+                                                            corrections. Market Research Advisory may discontinue or
+                                                            change
                                                             any service described in or offered on this web site or in
                                                             any modules or parts thereof at any time if deemed fit and
-                                                            proper. Market Research Advisory (including its owner, directors,
+                                                            proper. Market Research Advisory (including its owner,
+                                                            directors,
                                                             employees, affiliates, agents, representatives or
                                                             subcontractors) shall not be liable for any loss or
                                                             liability resulting, directly or indirectly, from delays or
                                                             interruptions due to electronic or mechanical equipment
                                                             failures, telephone interconnect problems, defects, weather,
                                                             strikes, walkouts, fire, riots, armed conflicts, acts of
-                                                            war, pandemic situations or other like causes. Market Research Advisory shall have no responsibility to provide you access
+                                                            war, pandemic situations or other like causes. Market
+                                                            Research Advisory shall have no responsibility to provide
+                                                            you access
                                                             to the Website while interruption of the Website is due to
                                                             any such cause shall continue.</div>
                                                         <div>&nbsp;</div>
                                                         <div>PRODUCTS OFFERED ON THE WEBSITE: –</div>
                                                         <div>&nbsp;</div>
                                                         <div>With respect to the data from Capital Markets and the
-                                                            products made available on the Website by Market Research Advisory including but not limited to stocks, reports etc.
+                                                            products made available on the Website by Market Research
+                                                            Advisory including but not limited to stocks, reports etc.
                                                         </div>
                                                         <div>&nbsp;</div>
                                                         <div>YOU HEREBY AGREE THAT: –</div>
@@ -5282,7 +5527,8 @@ flexibility(document.documentElement);
                                                             correct.</div>
                                                         <div>&nbsp;</div>
                                                         <div>You hereby declare that the amount being transferred by you
-                                                            for the purpose of subscribing to any of Market Research Advisory
+                                                            for the purpose of subscribing to any of Market Research
+                                                            Advisory
                                                             research services is derived through legitimate sources and
                                                             is not held or designed for the purpose of contravention of
                                                             any Act, Rules, Regulations or any statute or legislation or
@@ -5290,7 +5536,8 @@ flexibility(document.documentElement);
                                                             issued by any governmental, regulatory or statutory
                                                             authority/Lies from time to time.</div>
                                                         <div>&nbsp;</div>
-                                                        <div>You agree that Market Research Advisory sources the data from
+                                                        <div>You agree that Market Research Advisory sources the data
+                                                            from
                                                             the Capital Markets and is/are therefore not responsible
                                                             and/or should be held liable by you for the correctness or
                                                             accuracy of any information received in that regard from the
@@ -5301,26 +5548,32 @@ flexibility(document.documentElement);
                                                             whereas the Bombay Stock Exchange (“BSE”) data displayed on
                                                             the site is delayed by fifteen (15) minutes; and technical
                                                             glitches if any, may further delay the data at times and
-                                                            that you will not hold Market Research Advisory responsible for
+                                                            that you will not hold Market Research Advisory responsible
+                                                            for
                                                             any such delays in receiving the data / feeds from time to
                                                             time.</div>
                                                         <div>&nbsp;</div>
                                                         <div>You agree that the authenticity of the data received from
-                                                            Capital Markets is not guaranteed by Market Research Advisory and
-                                                            that Market Research Advisory shall assume no responsibility or
+                                                            Capital Markets is not guaranteed by Market Research
+                                                            Advisory and
+                                                            that Market Research Advisory shall assume no responsibility
+                                                            or
                                                             liability in any manner whatsoever for such data and your
                                                             subsequent trade, action etc. acting upon such data.</div>
                                                         <div>&nbsp;</div>
                                                         <div>LIABILITY: –</div>
                                                         <div>&nbsp;</div>
-                                                        <div>You agree that, Market Research Advisory (Including its owner ,
+                                                        <div>You agree that, Market Research Advisory (Including its
+                                                            owner ,
                                                             officers, directors, employees, affiliates, group companies
                                                             agents, representatives or subcontractors) shall not be, in
                                                             any event, be liable, whether in contract or tort, for any
                                                             direct, special, indirect, consequential or incidental
                                                             damages or other damages of any kind whatsoever arising out
-                                                            of the use or inability to use Market Research Advisory (“the
-                                                            Website”) for any purpose whatsoever even if Market Research Advisory or any other such party has been advised of the
+                                                            of the use or inability to use Market Research Advisory
+                                                            (“the
+                                                            Website”) for any purpose whatsoever even if Market Research
+                                                            Advisory or any other such party has been advised of the
                                                             possibility thereof. Market Research Advisory and its owner,
                                                             officers, directors, employees and agents shall have no
                                                             liability in tort, contract, or otherwise to the user and/or
@@ -5347,21 +5600,26 @@ flexibility(document.documentElement);
                                                         <div>&nbsp;</div>
                                                         <div>INDEMNIFICATION: –</div>
                                                         <div>&nbsp;</div>
-                                                        <div>You shall indemnify, defend and hold harmless Market Research Advisory (including its owner, officers, directors,
+                                                        <div>You shall indemnify, defend and hold harmless Market
+                                                            Research Advisory (including its owner, officers, directors,
                                                             employees, affiliates, group companies, agents,
                                                             representatives or subcontractors) from any and all claims
                                                             and losses imposed on, incurred by or asserted as a result
-                                                            of or related to: (a) your access and use of Market Research Advisory (“the Website”) of Market Research Advisory firm, (b)
+                                                            of or related to: (a) your access and use of Market Research
+                                                            Advisory (“the Website”) of Market Research Advisory firm,
+                                                            (b)
                                                             any non-compliance by user with the terms and conditions
                                                             hereof; or © any third party actions related to users
                                                             receipt and use of the information, whether authorized or
                                                             unauthorized. Any clause declared invalid shall be deemed
                                                             severable and not affect the validity or enforceability of
                                                             the remainder. These terms may only be amended in a writing
-                                                            signed by Market Research Advisory. If Market Research Advisory takes
+                                                            signed by Market Research Advisory. If Market Research
+                                                            Advisory takes
                                                             action (by itself) to enforce any of the provisions of this
                                                             User Agreement, including collection of any amounts due here
-                                                            under, Market Research Advisory shall be entitled to recover from
+                                                            under, Market Research Advisory shall be entitled to recover
+                                                            from
                                                             you (and you agree to pay), in addition to all sums to which
                                                             it is entitled or any other relief, at law or in equity,
                                                             reasonable and necessary attorney’s fees and any costs of
@@ -5371,12 +5629,16 @@ flexibility(document.documentElement);
                                                         <div>&nbsp;</div>
                                                         <div>This User Agreement constitutes the entire agreement
                                                             between the parties and is inclusive of any other written
-                                                            agreement existing between you and Market Research Advisory and
+                                                            agreement existing between you and Market Research Advisory
+                                                            and
                                                             Research Services. By using the information on
-                                                            https://marketresearchadvisory.com/ (“the Website”) of Market Research Advisory and Research Services firm, you assume full
+                                                            https://marketresearchadvisory.com/ (“the Website”) of
+                                                            Market Research Advisory and Research Services firm, you
+                                                            assume full
                                                             responsibility for any gains and losses, financial,
                                                             emotional, or otherwise, experienced, suffered, or incurred
-                                                            by you. https://marketresearchadvisory.com/ (“the Website”) of
+                                                            by you. https://marketresearchadvisory.com/ (“the Website”)
+                                                            of
                                                             Market Research Advisory and Research Services firm does not
                                                             guarantee the accuracy, completeness or timeliness of, or
                                                             otherwise endorse in any way, the views, opinions, or
@@ -5388,14 +5650,18 @@ flexibility(document.documentElement);
                                                             your professional advisor before making any investment of
                                                             the type discussed in the Information. The Information does
                                                             not constitute a solicitation by the information providers,
-                                                            https://marketresearchadvisory.com/ (“the Website”) of Market Research Advisory and Research Services firm or any other platform
+                                                            https://marketresearchadvisory.com/ (“the Website”) of
+                                                            Market Research Advisory and Research Services firm or any
+                                                            other platform
                                                             for the purchase or sale of securities. The service is
                                                             provided “as is,” without warranty of any kind, either
                                                             express or implied, including without limitation, any
                                                             warranty for information, data, services, uninterrupted
                                                             access, provided through or in connection with the service.
-                                                            Specifically, https://marketresearchadvisory.com/ (“the Website”)
-                                                            of Market Research Advisory and Research Services firm disclaims
+                                                            Specifically, https://marketresearchadvisory.com/ (“the
+                                                            Website”)
+                                                            of Market Research Advisory and Research Services firm
+                                                            disclaims
                                                             any warranties, including, but not limited to (i) any
                                                             warranties concerning the availability, accuracy,
                                                             usefulness, or content of information, products or services;
@@ -5409,7 +5675,9 @@ flexibility(document.documentElement);
                                                             unauthorized access to, alteration of, or use of record,
                                                             whether for breach of contract, tort, negligence, or under
                                                             any other cause of action. Neither
-                                                            https://marketresearchadvisory.com/ (“the Website”) of Market Research Advisory and Research Services firm nor any of its owners,
+                                                            https://marketresearchadvisory.com/ (“the Website”) of
+                                                            Market Research Advisory and Research Services firm nor any
+                                                            of its owners,
                                                             employees, agents, successors, assigns, affiliates, group
                                                             companies, or content or service providers shall be liable
                                                             to you or another third party for any direct, indirect,
@@ -5419,21 +5687,25 @@ flexibility(document.documentElement);
                                                             countries do not allow the exclusion or limitation of
                                                             liability for consequential or incidental damages, the above
                                                             limitation may not apply to you. In such countries, the
-                                                            respective liability of Market Research Advisory and Research
+                                                            respective liability of Market Research Advisory and
+                                                            Research
                                                             Services firm, https://marketresearchadvisory.com/ (“the
-                                                            Website”) of Market Research Advisory and Research Services firm,
+                                                            Website”) of Market Research Advisory and Research Services
+                                                            firm,
                                                             its owner, employees, agents, successors, assigns,
                                                             affiliates, group companies, and content or service
                                                             providers respective liability is limited to the amount
                                                             provided under said law. Further, you agree and understand
                                                             that all services provided are non-refundable and that you
                                                             should carefully consider whether our services can meet your
-                                                            needs. Transactions between users of this site and Market Research Advisory and Research Services shall be governed by
+                                                            needs. Transactions between users of this site and Market
+                                                            Research Advisory and Research Services shall be governed by
                                                             and construed by the Securities and Exchange Board of India
                                                             (“SEBI”) Regulations and laws of India, without regard to
                                                             the laws regarding conflicts of law. Any litigation
                                                             regarding this agreement or any transaction between the
-                                                            customer and Market Research Advisory and Research Services or
+                                                            customer and Market Research Advisory and Research Services
+                                                            or
                                                             any action at law or in equity arising out of or relating to
                                                             this agreement or transaction shall be filed only in the
                                                             Competent Courts of Thane, Maharashtra and the customer
@@ -5462,7 +5734,9 @@ flexibility(document.documentElement);
                                                         <div>The copyright in this website and the material on this
                                                             website (including without limitation the text, artwork,
                                                             photographs, images, music, audio material, video material,
-                                                            and audio-visual material on this website) is owned by Market Research Advisory and Research Services and its licensors.
+                                                            and audio-visual material on this website) is owned by
+                                                            Market Research Advisory and Research Services and its
+                                                            licensors.
                                                         </div>
                                                         <div>&nbsp;</div>
                                                         <div>Copyright license</div>
@@ -5479,7 +5753,8 @@ flexibility(document.documentElement);
                                                         <div>Print pages from this website for your personal
                                                             non-commercial use.</div>
                                                         <div>&nbsp;</div>
-                                                        <div>Market Research Advisory and Research Services do not grant you
+                                                        <div>Market Research Advisory and Research Services do not grant
+                                                            you
                                                             any other rights about this website or the material on this
                                                             website. In other words, all other rights are reserved.
                                                         </div>
@@ -5487,7 +5762,8 @@ flexibility(document.documentElement);
                                                         <div>For the avoidance of doubt, you must not adapt, edit,
                                                             change, transform, republish, redistribute, broadcast, or
                                                             show or play in public this website or the material on this
-                                                            website (in any form or media) without Market Research Advisory
+                                                            website (in any form or media) without Market Research
+                                                            Advisory
                                                             and Research Services prior written permission. You may
                                                             request permission by writing to admin@
                                                         </div>
@@ -5499,15 +5775,18 @@ flexibility(document.documentElement);
                                                         <div>&nbsp;</div>
                                                         <div>Enforcement of copyright</div>
                                                         <div>&nbsp;</div>
-                                                        <div>Market Research Advisory and Research Services firm takes the
+                                                        <div>Market Research Advisory and Research Services firm takes
+                                                            the
                                                             protection of its copyright materials very seriously. If
-                                                            Market Research Advisory and Research Services firm discovers
+                                                            Market Research Advisory and Research Services firm
+                                                            discovers
                                                             that you have used our copyright materials in contravention
                                                             of the license above, Market Research Advisory and Research
                                                             Services may bring legal proceedings against you for an
                                                             injunction to stop you from using those materials and
                                                             monetary damages. You could also be ordered to pay our legal
-                                                            costs. If you become aware of any use of Market Research Advisory
+                                                            costs. If you become aware of any use of Market Research
+                                                            Advisory
                                                             and Research Services copyright materials that contravenes
                                                             or may contravene the license above, please let us know by
                                                             email at</div>
@@ -5544,7 +5823,8 @@ flexibility(document.documentElement);
                                                             information Don’t get inﬂuenced by information that does not
                                                             originate from an appropriate source</div>
                                                         <div>3 Make all payments in the form of cheque/online transfer
-                                                            in the name Market Research Advisory and Research Services only
+                                                            in the name Market Research Advisory and Research Services
+                                                            only
                                                             Don’t get inﬂuenced into buying fundamentally unsound
                                                             companies (penny stocks) based on sudden spurts in trading
                                                             volumes or prices or non-authentic favourable looking
@@ -5561,7 +5841,8 @@ flexibility(document.documentElement);
                                                         </div>
                                                         <div>7</div>
                                                         <div>Don’t make a cash payment or issue a cheque in the name of
-                                                            any employee of Market Research Advisory and Research Services or
+                                                            any employee of Market Research Advisory and Research
+                                                            Services or
                                                             any other person in respect of the transactions</div>
                                                         <div>8</div>
                                                         <div>Don’t issue blank/bearer cheques to anyone</div>
@@ -5569,7 +5850,8 @@ flexibility(document.documentElement);
                                                         <div>Secure Fund Transfer</div>
                                                         <div>&nbsp;</div>
                                                         <div>Payment for all research services should be made in the
-                                                            current account of Market Research Advisory and Research Services
+                                                            current account of Market Research Advisory and Research
+                                                            Services
                                                             only. No payment should be made in any account of an
                                                             employee/associate of Market Research Advisory and Research
                                                             Services or any other individual in any condition</div>
@@ -5602,7 +5884,8 @@ flexibility(document.documentElement);
                                                         <div>1 Give unambiguous instructions to your broker while
                                                             placing orders over the phone with your broker. In any
                                                             circumstance, do not reveal your login credentials to any
-                                                            other person, not even a Market Research Advisory and Research
+                                                            other person, not even a Market Research Advisory and
+                                                            Research
                                                             Services representative</div>
                                                         <div>2You will be solely responsible for all transactions
                                                             effected by internet trading. Therefore, change your
@@ -5636,7 +5919,8 @@ flexibility(document.documentElement);
                                                             and One Time Passwords (OTP) to anybody over the phone, on
                                                             the internet, or via email</div>
                                                         <div>2 Write to us at ---------- if you
-                                                            notice a duplicate Market Research Advisory and Research Services
+                                                            notice a duplicate Market Research Advisory and Research
+                                                            Services
                                                             or webpage Do not open or click on attachments included in
                                                             emails from organizations or people you don’t know&nbsp;
                                                         </div>
@@ -5652,13 +5936,16 @@ flexibility(document.documentElement);
                                                         <div>6 Exercise caution when using the internet in public places
                                                             such as internet cafes and airport lounges Do not divulge
                                                             personal information on social</div>
-                                                        <div>7 Type the entire Market Research Advisory and Research Services
-                                                            address (https://marketresearchadvisory.com/) into your browser
+                                                        <div>7 Type the entire Market Research Advisory and Research
+                                                            Services
+                                                            address (https://marketresearchadvisory.com/) into your
+                                                            browser
                                                             to avoid being misdirected to a bogus site when you use the
                                                             search option. Do not disclose personal or business
                                                             information via a website link attached to an email</div>
                                                         <div>8</div>
-                                                        <div>Do not trust a site appearing to belong to Market Research Advisory and Research Services if it doesn’t start with the
+                                                        <div>Do not trust a site appearing to belong to Market Research
+                                                            Advisory and Research Services if it doesn’t start with the
                                                             ‘HTTPS’ preﬁx and doesn’t have a padlock symbol</div>
                                                         <div>&nbsp;</div>
                                                         <div>CUSTOMER AWARENESS OF SECURITY</div>
@@ -5687,7 +5974,8 @@ flexibility(document.documentElement);
                                                             credible source to compel you to reveal personal
                                                             information, which can then be used to commit fraud</div>
                                                         <div>Vising: These are phone calls by people pretending to work
-                                                            for Market Research Advisory and Research Services or another
+                                                            for Market Research Advisory and Research Services or
+                                                            another
                                                             legitimate business, asking you to reveal personal
                                                             information</div>
                                                         <div>Trojan / Virus: These are programs inadvertently installed
@@ -5859,11 +6147,9 @@ flexibility(document.documentElement);
                                         </div>
                                     </section>
                                     <section id="media_image-1" class="widget widget_media_image"><img width="300"
-                                            height="300"
-                                            src="../logo.svg"
+                                            height="300" src="../logo.svg"
                                             class="image wp-image-4408  attachment-medium size-medium" alt=""
-                                            style="max-width: 100%; height: auto;" decoding="async"
-                                            srcset=""
+                                            style="max-width: 100%; height: auto;" decoding="async" srcset=""
                                             sizes="(max-width: 300px) 100vw, 300px" /></section>
                                 </div>
                             </aside>
@@ -5880,28 +6166,33 @@ flexibility(document.documentElement);
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-3310 current_page_item menu-item-3315">
                                                     <a href="../index.html" aria-current="page" class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
-                                                            aria-hidden="true"></i><span>Home</span></a></li>
+                                                            aria-hidden="true"></i><span>Home</span></a>
+                                                </li>
                                                 <li id="menu-item-2371"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2371">
                                                     <a href="../about/index.html" class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
-                                                            aria-hidden="true"></i><span>About Us</span></a></li>
+                                                            aria-hidden="true"></i><span>About Us</span></a>
+                                                </li>
                                                 <li id="menu-item-2373"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2373">
                                                     <a href="../pricing/index.html" class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
-                                                            aria-hidden="true"></i><span>Packages</span></a></li>
+                                                            aria-hidden="true"></i><span>Packages</span></a>
+                                                </li>
                                                 <li id="menu-item-2374"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2374">
                                                     <a href="../footer_contents/RefundPolicy.html" class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
-                                                            aria-hidden="true"></i><span>Refund Policy</span></a></li>
+                                                            aria-hidden="true"></i><span>Refund Policy</span></a>
+                                                </li>
                                                 <li id="menu-item-4067"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4067">
                                                     <a href="../footer_contents/PrivacyNpolicy.html"
                                                         class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
-                                                            aria-hidden="true"></i><span>Privacy Policy</span></a></li>
+                                                            aria-hidden="true"></i><span>Privacy Policy</span></a>
+                                                </li>
                                                 <li id="menu-item-4068"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4068">
                                                     <a href="../footer_contents/LigalDisclamer.html"
@@ -5913,19 +6204,22 @@ flexibility(document.documentElement);
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4069">
                                                     <a href="../userConsent/index.html" class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
-                                                            aria-hidden="true"></i><span>User Consent</span></a></li>
+                                                            aria-hidden="true"></i><span>User Consent</span></a>
+                                                </li>
                                                 <li id="menu-item-4201"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4201">
                                                     <a href="../footer_contents/RegisterdReasearchAnalysis.html"
                                                         class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
                                                             aria-hidden="true"></i><span>Registered Research
-                                                            Analyst</span></a></li>
+                                                            Analyst</span></a>
+                                                </li>
                                                 <li id="menu-item-2372"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2372">
                                                     <a href="../ContectUs/index.html" class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
-                                                            aria-hidden="true"></i><span>Contact Us</span></a></li>
+                                                            aria-hidden="true"></i><span>Contact Us</span></a>
+                                                </li>
                                                 <li id="menu-item-4179"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4179">
                                                     <a href="../footer_contents/InvestorCharter.html"
@@ -5935,8 +6229,7 @@ flexibility(document.documentElement);
                                                 </li>
                                                 <li id="menu-item-4181"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4181">
-                                                    <a href="../footer_contents/DosNDosnt.html"
-                                                        class="menu-link"><i
+                                                    <a href="../footer_contents/DosNDosnt.html" class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
                                                             aria-hidden="true"></i><span>Do’s &#038; Don’ts</span></a>
                                                 </li>
@@ -5946,21 +6239,24 @@ flexibility(document.documentElement);
                                                         class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
                                                             aria-hidden="true"></i><span>Advertisement
-                                                            Disclaimer</span></a></li>
+                                                            Disclaimer</span></a>
+                                                </li>
                                                 <li id="menu-item-4219"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4219">
                                                     <a href="../footer_contents/GrivanceRedressalProcess.html"
                                                         class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
                                                             aria-hidden="true"></i><span>Grievance Redressal
-                                                            Process</span></a></li>
+                                                            Process</span></a>
+                                                </li>
                                                 <li id="menu-item-4220"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4220">
                                                     <a href="../footer_contents/TermsConditions.html"
                                                         class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
                                                             aria-hidden="true"></i><span>Terms &#038;
-                                                            Conditions</span></a></li>
+                                                            Conditions</span></a>
+                                                </li>
                                             </ul>
                                         </nav>
                                     </section>
@@ -6105,8 +6401,9 @@ flexibility(document.documentElement);
 
     </div>
 
-    <div id="ast-scroll-top" tabindex="0" class="ast-scroll-to-top-right" style="border-radius: 50%; scale: 1.5;" data-on-devices="both">
-        <i class="fa-solid fa-arrow-up" ></i>
+    <div id="ast-scroll-top" tabindex="0" class="ast-scroll-to-top-right" style="border-radius: 50%; scale: 1.5;"
+        data-on-devices="both">
+        <i class="fa-solid fa-arrow-up"></i>
     </div>
     <!-- Click to Chat - https://holithemes.com/plugins/click-to-chat/  v4.12.1 -->
     <div class="ht-ctc ht-ctc-chat ctc-analytics ctc_wp_mobile style-2  " id="ht-ctc-chat"
@@ -6138,7 +6435,7 @@ flexibility(document.documentElement);
         </div>
     </div>
     <span class="ht_ctc_chat_data" data-no_number=""
-        data-settings="{&quot;number&quot;:&quot;917304231283&quot;,&quot;pre_filled&quot;:&quot;&quot;,&quot;dis_m&quot;:&quot;show&quot;,&quot;dis_d&quot;:&quot;show&quot;,&quot;css&quot;:&quot;display: none; cursor: pointer; z-index: 99999999;&quot;,&quot;pos_d&quot;:&quot;position: fixed; bottom: 26px; left: 15px;&quot;,&quot;pos_m&quot;:&quot;position: fixed; bottom: 26px; left: 15px;&quot;,&quot;schedule&quot;:&quot;no&quot;,&quot;se&quot;:150,&quot;ani&quot;:&quot;no-animations&quot;,&quot;url_target_d&quot;:&quot;_blank&quot;,&quot;ga&quot;:&quot;yes&quot;,&quot;fb&quot;:&quot;yes&quot;,&quot;g_init&quot;:&quot;default&quot;,&quot;g_an_event_name&quot;:&quot;chat: {number}&quot;,&quot;pixel_event_name&quot;:&quot;Click to Chat by HoliThemes&quot;}"></span>
+        data-settings="{&quot;number&quot;:&quot;919819596352&quot;,&quot;pre_filled&quot;:&quot;&quot;,&quot;dis_m&quot;:&quot;show&quot;,&quot;dis_d&quot;:&quot;show&quot;,&quot;css&quot;:&quot;display: none; cursor: pointer; z-index: 99999999;&quot;,&quot;pos_d&quot;:&quot;position: fixed; bottom: 26px; left: 15px;&quot;,&quot;pos_m&quot;:&quot;position: fixed; bottom: 26px; left: 15px;&quot;,&quot;schedule&quot;:&quot;no&quot;,&quot;se&quot;:150,&quot;ani&quot;:&quot;no-animations&quot;,&quot;url_target_d&quot;:&quot;_blank&quot;,&quot;ga&quot;:&quot;yes&quot;,&quot;fb&quot;:&quot;yes&quot;,&quot;g_init&quot;:&quot;default&quot;,&quot;g_an_event_name&quot;:&quot;chat: {number}&quot;,&quot;pixel_event_name&quot;:&quot;Click to Chat by HoliThemes&quot;}"></span>
     <script type='text/javascript'>
         const lazyloadRunObserver = () => {
             const lazyloadBackgrounds = document.querySelectorAll(`.e-con.e-parent:not(.e-lazyloaded)`);
@@ -6211,7 +6508,7 @@ flexibility(document.documentElement);
         id="astra-theme-js-js"></script>
     <script id="ht_ctc_app_js-js-extra">
         var ht_ctc_chat_var = {
-            "number": "917304231283",
+            "number": "919819596352",
             "pre_filled": "",
             "dis_m": "show",
             "dis_d": "show",

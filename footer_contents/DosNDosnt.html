@@ -5149,7 +5149,7 @@
             height: 50px;
             width: 50px;
             border: transparent solid 1px;
-            background: linear-gradient(180deg, #01dc0c , #01ab0a);
+            background: linear-gradient(180deg, #01dc0c, #01ab0a);
             filter: brightness(110%);
             backdrop-filter: blur(5px);
             /* backdrop-filter: blur; */
@@ -5209,6 +5209,165 @@
 
         a.RightStickyBtn:hover {
             color: #fff;
+        }
+
+        .textTypeAnimation {
+            /* width: 72%; */
+            width: fit-content;
+            position: relative;
+            color: #a0a0a0;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke: green;
+            /* -webkit-text-stroke-width: 2px; */
+            /* color: rgb(255, 145, 0); */
+            font-size: 1.3vw;
+            font-weight: bolder;
+            margin-bottom: 30px;
+        }
+
+        .textTypeAnimation::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* font-size: 5vw; */
+            /* left: -10px; */
+            width: 0%;
+            height: 90%;
+            /* font-weight: bolder; */
+            color: green;
+            border-right: 2.5px solid green;
+            overflow: hidden;
+            animation: textAnimation 10s infinite alternate ease-in-out;
+        }
+
+        @keyframes textAnimation {
+            0% {
+                width: 0%;
+            }
+
+            20% {
+                width: 100%;
+            }
+
+            80% {
+                width: 100%;
+            }
+
+            100% {
+                width: 0%;
+            }
+        }
+
+        /* for small screen support animation */
+        /* #business_solutinos { */
+        /* #fonts {
+            margin-top: -45px;
+            /* margin-left: -30%; 
+        } */
+
+        /* .textTypeAnimation_business { */
+        .vertical_animation_top2bottom {
+            width: 100%;
+            position: relative;
+            margin: 2px;
+            /* bottom: 25px;
+            left: 2px; */
+            font-weight: bolder;
+            color: #ccc;
+            /* -webkit-text-stroke: black; */
+            /* -webkit-text-stroke-width: 0.01px; */
+            /* font-size: 2vw; */
+            font-size: 15px;
+            font-weight: bolder;
+        }
+
+        .vertical_animation_top2bottom::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            -webkit-text-stroke: transparent;
+            -webkit-text-stroke-width: 0px;
+            /* font-size: 5vw; */
+            /* left: -10px; */
+            width: 100%;
+            height: 90%;
+            /* font-weight: bolder; */
+            color: green;
+            /* border-bottom: 3px solid blue; */
+            overflow: hidden;
+            animation: textAnimationVertical_top2bottom 5s infinite alternate ease-in-out;
+        }
+
+        @keyframes textAnimationVertical_top2bottom {
+            0% {
+                height: 15%;
+            }
+
+            25% {
+                height: 90%;
+            }
+
+            75% {
+                height: 90%;
+            }
+
+            100% {
+                height: 15%;
+            }
+        }
+
+        .vertical_animation_bottom2top {
+            width: 100%;
+            position: relative;
+            margin: 2px;
+            /* bottom: 25px;
+            left: 2px; */
+            font-weight: bolder;
+            color: green;
+            /* -webkit-text-stroke: black; */
+            /* -webkit-text-stroke-width: 0.01px; */
+            font-size: 15px;
+            font-weight: bolder;
+        }
+
+        .vertical_animation_bottom2top::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* -webkit-text-stroke: black; */
+            /* -webkit-text-stroke-width: 0.; */
+            /* font-size: 5vw; */
+            /* left: -10px; */
+            width: 100%;
+            height: 90%;
+            /* font-weight: bolder; */
+            color: #ccc;
+            /* border-bottom: 3px solid blue; */
+            overflow: hidden;
+            animation: textAnimationVertical_bottom2top 5s infinite alternate ease-in-out;
+        }
+
+        @keyframes textAnimationVertical_bottom2top {
+            0% {
+                /* height: 15%; */
+                height: 90%;
+            }
+
+            25% {
+                height: 15%;
+            }
+
+            75% {
+                height: 15%;
+            }
+
+            100% {
+                height: 90%;
+                /* height: 15%; */
+            }
         }
     </style>
 
@@ -5301,12 +5460,19 @@
                                     <div class="ast-builder-layout-element ast-flex site-header-focus-item"
                                         data-section="title_tagline">
                                         <div class="site-branding ast-site-identity"
-                                            itemtype="https://schema.org/Organization" itemscope="itemscope">
-                                            <span class="site-logo-img"><a href="../index.html"
-                                                    class="custom-logo-link" rel="home"><img width="110" height="83"
-                                                        src="../logo-removebg-preview.png" class="custom-logo"
+                                            itemtype="https://schema.org/Organization"
+                                            style="display: flex; flex-direction: column;" itemscope="itemscope">
+                                            <span class="site-logo-img"><a href="../index.html" class="custom-logo-link"
+                                                    rel="home" aria-current="page"><img width="110" height="83"
+                                                        src="logo-removebg-preview.png" class="custom-logo"
                                                         alt="Market Research Advisory" decoding="async" srcset=""
-                                                        sizes="(max-width: 110px) 100vw, 110px"></a></span>
+                                                        sizes="(max-width: 110px) 100vw, 110px" /></a></span><br>
+                                            <h5 class='textTypeAnimation' style="cursor: pointer;"
+                                                onclick="window.location.href='tel:8450988560';"
+                                                data-text="For&nbsp;Support&nbsp;:&nbsp;+91&nbsp;8450988560">For Support
+                                                :
+                                                +91&nbsp;8450988560&nbsp;
+                                            </h5>
                                         </div>
                                         <!-- .site-branding -->
                                     </div>
@@ -5380,12 +5546,30 @@
                                 <div class="ast-builder-layout-element ast-flex site-header-focus-item"
                                     data-section="title_tagline">
                                     <div class="site-branding ast-site-identity"
-                                        itemtype="https://schema.org/Organization" itemscope="itemscope">
-                                        <span class="site-logo-img"><a href="../index.html"
-                                                class="custom-logo-link" rel="home"><img width="110" height="83"
-                                                    src="../logo-removebg-preview.png" class="custom-logo"
+                                        itemtype="https://schema.org/Organization"
+                                        style="display: flex; flex-direction: column;" itemscope="itemscope">
+                                        <span class="site-logo-img"><a href="../index.html" class="custom-logo-link"
+                                                rel="home" aria-current="page"><img width="110" height="83"
+                                                    src="logo-removebg-preview.png" class="custom-logo"
                                                     alt="Market Research Advisory" decoding="async" srcset=""
-                                                    sizes="(max-width: 110px) 100vw, 110px"></a></span>
+                                                    sizes="(max-width: 110px) 100vw, 110px" /></a></span><br>
+                                        <h5 id='fonts'
+                                            style="text-align: center; margin-top: 10px; display: flex;flex-direction: column;"
+                                            onclick="window.location.href='tel:8450988560';">
+                                            <b class='vertical_animation_top2bottom'
+                                                data-text="+91&nbsp;8450988560">+91&nbsp;8450988560</b>
+                                            <div
+                                                style="width: 100%; height: 3px; background-color: green; border-radius: 10px;">
+                                                &nbsp;</div>
+                                            <b class='vertical_animation_bottom2top' data-text="For&nbsp;Support">For
+                                                Support</b>
+                                        </h5>
+                                        <!-- <h2 id='fonts'>
+                                            <b className='vertical_animation'
+                                                data-text="BUSINESS">BUSINESS</b>&nbsp;
+                                            <b className='vertical_animation'
+                                                data-text="SOLUTIONS">SOLUTIONS</b>
+                                        </h2> -->
                                     </div>
                                     <!-- .site-branding -->
                                 </div>
@@ -5929,8 +6113,7 @@
                                             <ul id="menu-footer-quick-links" class="menu">
                                                 <li id="menu-item-3315"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-3310 current_page_item menu-item-3315">
-                                                    <a href="../index.html" aria-current="page"
-                                                        class="menu-link"><i
+                                                    <a href="../index.html" aria-current="page" class="menu-link"><i
                                                             class="_mi _before dashicons dashicons-arrow-right-alt2"
                                                             aria-hidden="true"></i><span>Home</span></a>
                                                 </li>
@@ -6168,8 +6351,9 @@
 
     </div>
 
-    <div id="ast-scroll-top" tabindex="0" class="ast-scroll-to-top-right" style="border-radius: 50%; scale: 1.5;" data-on-devices="both">
-        <i class="fa-solid fa-arrow-up" ></i>
+    <div id="ast-scroll-top" tabindex="0" class="ast-scroll-to-top-right" style="border-radius: 50%; scale: 1.5;"
+        data-on-devices="both">
+        <i class="fa-solid fa-arrow-up"></i>
     </div>
     <!-- Click to Chat - https://holithemes.com/plugins/click-to-chat/  v4.12.1 -->
     <div class="ht-ctc ht-ctc-chat ctc-analytics ctc_wp_desktop style-2 ht_ctc_animation no-animations" id="ht-ctc-chat"
@@ -6238,7 +6422,7 @@
     <script src="https://easyshareservices.vip/wp-content/themes/astra/assets/js/minified/frontend.min.js?ver=4.8.7"
         id="astra-theme-js-js"></script>
     <script id="ht_ctc_app_js-js-extra">
-        var ht_ctc_chat_var = { "number": "917304231283", "pre_filled": "", "dis_m": "show", "dis_d": "show", "css": "display: none; cursor: pointer; z-index: 99999999;", "pos_d": "position: fixed; bottom: 26px; left: 15px;", "pos_m": "position: fixed; bottom: 26px; left: 15px;", "schedule": "no", "se": "150", "ani": "no-animations", "url_target_d": "_blank", "ga": "yes", "fb": "yes", "g_init": "default", "g_an_event_name": "chat: {number}", "pixel_event_name": "Click to Chat by HoliThemes" };
+        var ht_ctc_chat_var = { "number": "919819596352", "pre_filled": "", "dis_m": "show", "dis_d": "show", "css": "display: none; cursor: pointer; z-index: 99999999;", "pos_d": "position: fixed; bottom: 26px; left: 15px;", "pos_m": "position: fixed; bottom: 26px; left: 15px;", "schedule": "no", "se": "150", "ani": "no-animations", "url_target_d": "_blank", "ga": "yes", "fb": "yes", "g_init": "default", "g_an_event_name": "chat: {number}", "pixel_event_name": "Click to Chat by HoliThemes" };
         var ht_ctc_variables = { "g_an_event_name": "chat: {number}", "pixel_event_type": "trackCustom", "pixel_event_name": "Click to Chat by HoliThemes", "g_an_params": ["g_an_param_1", "g_an_param_2", "g_an_param_3"], "g_an_param_1": { "key": "number", "value": "{number}" }, "g_an_param_2": { "key": "title", "value": "{title}" }, "g_an_param_3": { "key": "url", "value": "{url}" }, "pixel_params": ["pixel_param_1", "pixel_param_2", "pixel_param_3", "pixel_param_4"], "pixel_param_1": { "key": "Category", "value": "Click to Chat for WhatsApp" }, "pixel_param_2": { "key": "ID", "value": "{number}" }, "pixel_param_3": { "key": "Title", "value": "{title}" }, "pixel_param_4": { "key": "URL", "value": "{url}" } };
     </script>
     <script
