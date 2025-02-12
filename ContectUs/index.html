@@ -4432,7 +4432,7 @@ flexibility(document.documentElement);
             height: 50px;
             width: 50px;
             border: transparent solid 1px;
-            background: linear-gradient(180deg, #01dc0c , #01ab0a);
+            background: linear-gradient(180deg, #01dc0c, #01ab0a);
             filter: brightness(110%);
             backdrop-filter: blur(5px);
             /* backdrop-filter: blur; */
@@ -4490,6 +4490,165 @@ flexibility(document.documentElement);
 
         a.RightStickyBtn:hover {
             color: #fff;
+        }
+
+        .textTypeAnimation {
+            /* width: 72%; */
+            width: fit-content;
+            position: relative;
+            color: #a0a0a0;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke: green;
+            /* -webkit-text-stroke-width: 2px; */
+            /* color: rgb(255, 145, 0); */
+            font-size: 1.3vw;
+            font-weight: bolder;
+            margin-bottom: 30px;
+        }
+
+        .textTypeAnimation::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* font-size: 5vw; */
+            /* left: -10px; */
+            width: 0%;
+            height: 90%;
+            /* font-weight: bolder; */
+            color: green;
+            border-right: 2.5px solid green;
+            overflow: hidden;
+            animation: textAnimation 10s infinite alternate ease-in-out;
+        }
+
+        @keyframes textAnimation {
+            0% {
+                width: 0%;
+            }
+
+            20% {
+                width: 100%;
+            }
+
+            80% {
+                width: 100%;
+            }
+
+            100% {
+                width: 0%;
+            }
+        }
+
+        /* for small screen support animation */
+        /* #business_solutinos { */
+        /* #fonts {
+            margin-top: -45px;
+            /* margin-left: -30%; 
+        } */
+
+        /* .textTypeAnimation_business { */
+        .vertical_animation_top2bottom {
+            width: 100%;
+            position: relative;
+            margin: 2px;
+            /* bottom: 25px;
+            left: 2px; */
+            font-weight: bolder;
+            color: #ccc;
+            /* -webkit-text-stroke: black; */
+            /* -webkit-text-stroke-width: 0.01px; */
+            /* font-size: 2vw; */
+            font-size: 15px;
+            font-weight: bolder;
+        }
+
+        .vertical_animation_top2bottom::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            -webkit-text-stroke: transparent;
+            -webkit-text-stroke-width: 0px;
+            /* font-size: 5vw; */
+            /* left: -10px; */
+            width: 100%;
+            height: 90%;
+            /* font-weight: bolder; */
+            color: green;
+            /* border-bottom: 3px solid blue; */
+            overflow: hidden;
+            animation: textAnimationVertical_top2bottom 5s infinite alternate ease-in-out;
+        }
+
+        @keyframes textAnimationVertical_top2bottom {
+            0% {
+                height: 15%;
+            }
+
+            25% {
+                height: 90%;
+            }
+
+            75% {
+                height: 90%;
+            }
+
+            100% {
+                height: 15%;
+            }
+        }
+
+        .vertical_animation_bottom2top {
+            width: 100%;
+            position: relative;
+            margin: 2px;
+            /* bottom: 25px;
+            left: 2px; */
+            font-weight: bolder;
+            color: green;
+            /* -webkit-text-stroke: black; */
+            /* -webkit-text-stroke-width: 0.01px; */
+            font-size: 15px;
+            font-weight: bolder;
+        }
+
+        .vertical_animation_bottom2top::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* -webkit-text-stroke: black; */
+            /* -webkit-text-stroke-width: 0.; */
+            /* font-size: 5vw; */
+            /* left: -10px; */
+            width: 100%;
+            height: 90%;
+            /* font-weight: bolder; */
+            color: #ccc;
+            /* border-bottom: 3px solid blue; */
+            overflow: hidden;
+            animation: textAnimationVertical_bottom2top 5s infinite alternate ease-in-out;
+        }
+
+        @keyframes textAnimationVertical_bottom2top {
+            0% {
+                /* height: 15%; */
+                height: 90%;
+            }
+
+            25% {
+                height: 15%;
+            }
+
+            75% {
+                height: 15%;
+            }
+
+            100% {
+                height: 90%;
+                /* height: 15%; */
+            }
         }
     </style>
 
@@ -4582,12 +4741,19 @@ flexibility(document.documentElement);
                                     <div class="ast-builder-layout-element ast-flex site-header-focus-item"
                                         data-section="title_tagline">
                                         <div class="site-branding ast-site-identity"
-                                            itemtype="https://schema.org/Organization" itemscope="itemscope">
+                                            itemtype="https://schema.org/Organization"
+                                            style="display: flex; flex-direction: column;" itemscope="itemscope">
                                             <span class="site-logo-img"><a href="../index.html" class="custom-logo-link"
-                                                    rel="home"><img width="110" height="83"
+                                                    rel="home" aria-current="page"><img width="110" height="83"
                                                         src="logo-removebg-preview.png" class="custom-logo"
                                                         alt="Market Research Advisory" decoding="async" srcset=""
-                                                        sizes="(max-width: 110px) 100vw, 110px" /></a></span>
+                                                        sizes="(max-width: 110px) 100vw, 110px" /></a></span><br>
+                                            <h5 class='textTypeAnimation' style="cursor: pointer;"
+                                                onclick="window.location.href='tel:8450988560';"
+                                                data-text="For&nbsp;Support&nbsp;:&nbsp;+91&nbsp;8450988560">For Support
+                                                :
+                                                +91&nbsp;8450988560&nbsp;
+                                            </h5>
                                         </div>
                                         <!-- .site-branding -->
                                     </div>
@@ -4662,11 +4828,30 @@ flexibility(document.documentElement);
                                 <div class="ast-builder-layout-element ast-flex site-header-focus-item"
                                     data-section="title_tagline">
                                     <div class="site-branding ast-site-identity"
-                                        itemtype="https://schema.org/Organization" itemscope="itemscope">
-                                        <span class="site-logo-img"><a href="../index.html" class="custom-logo-link"
-                                                rel="home"><img width="110" height="83" src="logo-removebg-preview.png"
-                                                    class="custom-logo" alt="Market Research Advisory" decoding="async"
-                                                    srcset="" sizes="(max-width: 110px) 100vw, 110px" /></a></span>
+                                        itemtype="https://schema.org/Organization"
+                                        style="display: flex; flex-direction: column;" itemscope="itemscope">
+                                        <span class="site-logo-img"><a href="./index.html" class="custom-logo-link"
+                                                rel="home" aria-current="page"><img width="110" height="83"
+                                                    src="logo-removebg-preview.png" class="custom-logo"
+                                                    alt="Market Research Advisory" decoding="async" srcset=""
+                                                    sizes="(max-width: 110px) 100vw, 110px" /></a></span><br>
+                                        <h5 id='fonts'
+                                            style="text-align: center; margin-top: 10px; display: flex;flex-direction: column;"
+                                            onclick="window.location.href='tel:8450988560';">
+                                            <b class='vertical_animation_top2bottom'
+                                                data-text="+91&nbsp;8450988560">+91&nbsp;8450988560</b>
+                                            <div
+                                                style="width: 100%; height: 3px; background-color: green; border-radius: 10px;">
+                                                &nbsp;</div>
+                                            <b class='vertical_animation_bottom2top' data-text="For&nbsp;Support">For
+                                                Support</b>
+                                        </h5>
+                                        <!-- <h2 id='fonts'>
+                                            <b className='vertical_animation'
+                                                data-text="BUSINESS">BUSINESS</b>&nbsp;
+                                            <b className='vertical_animation'
+                                                data-text="SOLUTIONS">SOLUTIONS</b>
+                                        </h2> -->
                                     </div>
                                     <!-- .site-branding -->
                                 </div>
@@ -4937,7 +5122,23 @@ flexibility(document.documentElement);
                                                                 <div class="elementor-widget-container">
                                                                     <h3
                                                                         class="elementor-heading-title elementor-size-default">
-                                                                        9819596352
+                                                                        <a href="https://wa.me/9819596352">
+                                                                            9819596352
+                                                                        </a>
+                                                                    </h3>
+                                                                </div>
+                                                            </div>
+                                                            <div class="elementor-element elementor-element-ccbd83b ob-harakiri-inherit jltma-glass-effect-no ob-has-background-overlay elementor-widget elementor-widget-heading"
+                                                                data-id="ccbd83b" data-element_type="widget"
+                                                                data-settings="{&quot;_ob_use_harakiri&quot;:&quot;yes&quot;,&quot;_ob_harakiri_writing_mode&quot;:&quot;inherit&quot;,&quot;_ob_harakiri_text_clip&quot;:&quot;none&quot;,&quot;_ob_widget_stalker_use&quot;:&quot;no&quot;,&quot;_ob_poopart_use&quot;:&quot;yes&quot;,&quot;_ob_shadough_use&quot;:&quot;no&quot;,&quot;_ob_allow_hoveranimator&quot;:&quot;no&quot;}"
+                                                                data-widget_type="heading.default">
+                                                                <div class="elementor-widget-container">
+                                                                    <h3
+                                                                        class="elementor-heading-title elementor-size-default">
+                                                                        <a href="tel:8450988560">
+                                                                            8450988560<b>(For Support)</b>
+                                                                        </a>
+                                                                    </h3>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -4964,19 +5165,8 @@ flexibility(document.documentElement);
                                                                     <h3
                                                                         class="elementor-heading-title elementor-size-default">
                                                                         <a
-                                                                            href="mailto:compliance@easyshareservices.vip" >----------</a>
-                                                                    </h3>
-                                                                </div>
-                                                            </div>
-                                                            <div class="elementor-element elementor-element-d26917d ob-harakiri-inherit jltma-glass-effect-no ob-has-background-overlay elementor-widget elementor-widget-heading"
-                                                                data-id="d26917d" data-element_type="widget"
-                                                                data-settings="{&quot;_ob_use_harakiri&quot;:&quot;yes&quot;,&quot;_ob_harakiri_writing_mode&quot;:&quot;inherit&quot;,&quot;_ob_harakiri_text_clip&quot;:&quot;none&quot;,&quot;_ob_widget_stalker_use&quot;:&quot;no&quot;,&quot;_ob_poopart_use&quot;:&quot;yes&quot;,&quot;_ob_shadough_use&quot;:&quot;no&quot;,&quot;_ob_allow_hoveranimator&quot;:&quot;no&quot;}"
-                                                                data-widget_type="heading.default">
-                                                                <div class="elementor-widget-container">
-                                                                    <h3
-                                                                        class="elementor-heading-title elementor-size-default">
-                                                                        <a
-                                                                            href="mailto:sales@easyshareservices.vip">----------</a>
+                                                                            href="https://mail.google.com/mail/u/0/?fs=1&to=Marketresearchadvisory22@gmail.com&tf=cm">
+                                                                            Marketresearchadvisory22@gmail.com</a>
                                                                     </h3>
                                                                 </div>
                                                             </div>
@@ -5069,7 +5259,7 @@ flexibility(document.documentElement);
                                                                         method="POST"
                                                                         action="https://api.web3forms.com/submit">
                                                                         <input type="hidden" name="access_key"
-                                                                            value="b1a83dcf-0ad8-4b29-9828-111e25a3194e">
+                                                                            value="fd713690-9223-45e6-93ad-509498731a06">
                                                                         <noscript class="wpforms-error-noscript">Please
                                                                             enable
                                                                             JavaScript in your browser to complete this
@@ -5552,7 +5742,7 @@ flexibility(document.documentElement);
                 <div class="wpforms-container " id="wpforms-341">
                     <form id="wpforms-form-1290" data-formid="1290" method="POST"
                         action="https://api.web3forms.com/submit">
-                        <input type="hidden" name="access_key" value="b1a83dcf-0ad8-4b29-9828-111e25a3194e">
+                        <input type="hidden" name="access_key" value="fd713690-9223-45e6-93ad-509498731a06">
                         <noscript class="wpforms-error-noscript">Please enable
                             JavaScript in your browser to complete this
                             form.</noscript>
@@ -5716,7 +5906,7 @@ flexibility(document.documentElement);
         </div>
     </div>
     <span class="ht_ctc_chat_data" data-no_number=""
-        data-settings="{&quot;number&quot;:&quot;917304231283&quot;,&quot;pre_filled&quot;:&quot;&quot;,&quot;dis_m&quot;:&quot;show&quot;,&quot;dis_d&quot;:&quot;show&quot;,&quot;css&quot;:&quot;display: none; cursor: pointer; z-index: 99999999;&quot;,&quot;pos_d&quot;:&quot;position: fixed; bottom: 26px; left: 15px;&quot;,&quot;pos_m&quot;:&quot;position: fixed; bottom: 26px; left: 15px;&quot;,&quot;schedule&quot;:&quot;no&quot;,&quot;se&quot;:150,&quot;ani&quot;:&quot;no-animations&quot;,&quot;url_target_d&quot;:&quot;_blank&quot;,&quot;ga&quot;:&quot;yes&quot;,&quot;fb&quot;:&quot;yes&quot;,&quot;g_init&quot;:&quot;default&quot;,&quot;g_an_event_name&quot;:&quot;chat: {number}&quot;,&quot;pixel_event_name&quot;:&quot;Click to Chat by HoliThemes&quot;}"></span>
+        data-settings="{&quot;number&quot;:&quot;919819596352&quot;,&quot;pre_filled&quot;:&quot;&quot;,&quot;dis_m&quot;:&quot;show&quot;,&quot;dis_d&quot;:&quot;show&quot;,&quot;css&quot;:&quot;display: none; cursor: pointer; z-index: 99999999;&quot;,&quot;pos_d&quot;:&quot;position: fixed; bottom: 26px; left: 15px;&quot;,&quot;pos_m&quot;:&quot;position: fixed; bottom: 26px; left: 15px;&quot;,&quot;schedule&quot;:&quot;no&quot;,&quot;se&quot;:150,&quot;ani&quot;:&quot;no-animations&quot;,&quot;url_target_d&quot;:&quot;_blank&quot;,&quot;ga&quot;:&quot;yes&quot;,&quot;fb&quot;:&quot;yes&quot;,&quot;g_init&quot;:&quot;default&quot;,&quot;g_an_event_name&quot;:&quot;chat: {number}&quot;,&quot;pixel_event_name&quot;:&quot;Click to Chat by HoliThemes&quot;}"></span>
     <script type='text/javascript'>
         const lazyloadRunObserver = () => {
             const lazyloadBackgrounds = document.querySelectorAll(`.e-con.e-parent:not(.e-lazyloaded)`);
@@ -5762,7 +5952,7 @@ flexibility(document.documentElement);
         id="astra-theme-js-js"></script>
     <script id="ht_ctc_app_js-js-extra">
         var ht_ctc_chat_var = {
-            "number": "917304231283",
+            "number": "919819596352",
             "pre_filled": "",
             "dis_m": "show",
             "dis_d": "show",
