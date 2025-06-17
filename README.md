@@ -1,3 +1,3 @@
-# Live Deployed Path => https://marketresearchadvisory.com
+# Live Deployed Path => https://easyshareservices.vip
 
-![marketresearchadvisory.com](https://github.com/user-attachments/assets/1b80b456-4658-4b02-bd19-3dabc870e4d9)
+![easyshareservices.vip](https://github.com/user-attachments/assets/1b80b456-4658-4b02-bd19-3dabc870e4d9)
