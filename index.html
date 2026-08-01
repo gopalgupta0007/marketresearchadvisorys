@@ -1,4 +1,654 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Research Advisory - Strategic Insights for Business Growth</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo svg {
+            width: 50px;
+            height: 50px;
+            fill: #00ff88;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #00ff88;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 150px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            animation: slideGrid 20s linear infinite;
+        }
+
+        @keyframes slideGrid {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(10px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #00ff88, #00cc70);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+            box-shadow: 0 10px 30px rgba(0,255,136,0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,255,136,0.4);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a1a2e;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a1a2e;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-item {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            background: #f8f9fa;
+            transform: scale(1.05);
+        }
+
+        .service-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #00ff88, #00cc70);
+            color: white;
+            border-radius: 50%;
+            line-height: 50px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Tips Section */
+        .tips {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+        }
+
+        .tips h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .tips-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .tip-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .tip-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #00ff88;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #1a1a2e;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .phone-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00cc70;
+            text-decoration: none;
+        }
+
+        .phone-number:hover {
+            color: #00ff88;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .features-grid,
+            .services-grid,
+            .tips-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <!-- <svg viewBox="0 0 100 100">
+                    <path d="M50 10 C30 10, 15 25, 15 45 C15 55, 20 63, 28 68 L25 75 C20 80, 20 88, 25 93 C30 98, 40 98, 45 93 L50 88 L55 93 C60 98, 70 98, 75 93 C80 88, 80 80, 75 75 L72 68 C80 63, 85 55, 85 45 C85 25, 70 10, 50 10 Z M35 35 C35 32, 37 30, 40 30 C43 30, 45 32, 45 35 C45 38, 43 40, 40 40 C37 40, 35 38, 35 35 Z M55 35 C55 32, 57 30, 60 30 C63 30, 65 32, 65 35 C65 38, 63 40, 60 40 C57 40, 55 38, 55 35 Z M30 50 C25 48, 22 52, 25 55 C30 60, 40 65, 50 65 C60 65, 70 60, 75 55 C78 52, 75 48, 70 50 C65 52, 58 55, 50 55 C42 55, 35 52, 30 50 Z"/>
+                </svg> -->
+                <img src="./logo.svg" width="50px" alt="marketReasearchAdvisory">
+                <div>
+                    <h1>Market Research Advisory</h1>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#tips">Tips</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h2>Strategic Market Intelligence</h2>
+            <p>Unlock business growth with data-driven insights and expert market research advisory services</p>
+            <a href="#contact" class="cta-button">Get Started Today</a>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Why Choose Our Advisory Services</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📊</div>
+                    <h3>Data-Driven Insights</h3>
+                    <p>Comprehensive market analysis using advanced analytics and proven methodologies to deliver actionable business intelligence.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Strategic Planning</h3>
+                    <p>Custom research solutions tailored to your specific business objectives and market challenges.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Rapid Turnaround</h3>
+                    <p>Quick delivery of high-quality research reports without compromising on accuracy or depth of analysis.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Market Intelligence</h3>
+                    <p>In-depth competitor analysis, market trends, and consumer behavior insights to stay ahead of the competition.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">💡</div>
+                    <h3>Expert Consultation</h3>
+                    <p>Direct access to industry experts and seasoned analysts for strategic guidance and decision support.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📈</div>
+                    <h3>Growth Optimization</h3>
+                    <p>Identify new opportunities, optimize market entry strategies, and maximize return on investment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Research Services</h2>
+            <div class="services-grid">
+                <div class="service-item fade-in">
+                    <div class="service-number">1</div>
+                    <h3>Market Sizing & Analysis</h3>
+                    <p>Comprehensive market assessment including size, growth potential, and segmentation analysis.</p>
+                </div>
+                <div class="service-item fade-in">
+                    <div class="service-number">2</div>
+                    <h3>Competitive Intelligence</h3>
+                    <p>Detailed competitor profiling, pricing strategies, and market positioning analysis.</p>
+                </div>
+                <div class="service-item fade-in">
+                    <div class="service-number">3</div>
+                    <h3>Consumer Research</h3>
+                    <p>Customer behavior analysis, satisfaction surveys, and demographic profiling.</p>
+                </div>
+                <div class="service-item fade-in">
+                    <div class="service-number">4</div>
+                    <h3>Industry Trends</h3>
+                    <p>Emerging trend identification, technology impact assessment, and future market predictions.</p>
+                </div>
+                <div class="service-item fade-in">
+                    <div class="service-number">5</div>
+                    <h3>Custom Research</h3>
+                    <p>Tailored research solutions designed to address your specific business questions and challenges.</p>
+                </div>
+                <div class="service-item fade-in">
+                    <div class="service-number">6</div>
+                    <h3>Strategic Consulting</h3>
+                    <p>Advisory services for market entry, expansion strategies, and investment decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tips" class="tips">
+        <div class="container">
+            <h2>Expert Market Research Tips</h2>
+            <div class="tips-container">
+                <div class="tip-card fade-in">
+                    <h3>Define Clear Objectives</h3>
+                    <p>Start with specific, measurable research questions. Clear objectives lead to more focused data collection and actionable insights that drive business decisions.</p>
+                </div>
+                <div class="tip-card fade-in">
+                    <h3>Use Multiple Data Sources</h3>
+                    <p>Combine primary research (surveys, interviews) with secondary data (industry reports, databases) for comprehensive market understanding.</p>
+                </div>
+                <div class="tip-card fade-in">
+                    <h3>Focus on Target Audience</h3>
+                    <p>Ensure your research sample accurately represents your target market. Quality over quantity in respondent selection yields better results.</p>
+                </div>
+                <div class="tip-card fade-in">
+                    <h3>Track Trends Over Time</h3>
+                    <p>Regular market monitoring helps identify patterns and predict future changes. Establish baseline metrics for ongoing comparison.</p>
+                </div>
+                <div class="tip-card fade-in">
+                    <h3>Validate Findings</h3>
+                    <p>Cross-reference results with industry benchmarks and conduct follow-up research to ensure accuracy and reliability of insights.</p>
+                </div>
+                <div class="tip-card fade-in">
+                    <h3>Act on Insights</h3>
+                    <p>Transform research findings into strategic action plans. The value of market research lies in its implementation and impact on business outcomes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Contact our expert team today for a consultation</p>
+            <div class="contact-info">
+                <span>📞</span>
+                <a href="tel:+918450988560" class="phone-number">+91 8450988560</a>
+            </div>
+            <p>Available for support and consultation</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Market Research Advisory. All rights reserved. | Strategic Insights for Business Growth</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const headerOffset = 80;
+                const elementPosition = target.offsetTop;
+                const offsetPosition = elementPosition - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(26, 26, 46, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Add click animation to CTA button
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.style.position = 'absolute';
+            ripple.style.borderRadius = '50%';
+            ripple.style.background = 'rgba(255,255,255,0.3)';
+            ripple.style.transform = 'scale(0)';
+            ripple.style.animation = 'ripple 0.6s linear';
+            ripple.style.pointerEvents = 'none';
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+
+        // Add ripple animation CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+            .cta-button {
+                position: relative;
+                overflow: hidden;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Add floating animation to feature cards
+        document.querySelectorAll('.feature-card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+            card.classList.add('float-animation');
+        });
+
+        const floatStyle = document.createElement('style');
+        floatStyle.textContent = `
+            .float-animation {
+                animation: float 6s ease-in-out infinite;
+            }
+            
+            @keyframes float {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+            }
+        `;
+        document.head.appendChild(floatStyle);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
 <html lang="en-US">
   <head>
     <meta charset="UTF-8" />
@@ -5315,6 +5965,7 @@
         z-index: 12;
         border-radius: 10px;
         scale: 0.8;
+
       }
 
       a.LeftStickyBtn:hover {
@@ -5586,7 +6237,7 @@
                                   id="menu-item-3803"
                                   class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3803"
                                 >
-                                  <a href="tel:+918828655290" class="menu-link"
+                                  <a href="tel:+918450988560" class="menu-link"
                                     ><i
                                       class="_mi _before fa fa-phone"
                                       aria-hidden="true"
@@ -5663,10 +6314,10 @@
                         <h5
                           class="textTypeAnimation"
                           style="cursor: pointer"
-                          onclick="window.location.href='tel:8828655290';"
-                          data-text="For&nbsp;Support&nbsp;:&nbsp;+91&nbsp;8828655290"
+                          onclick="window.location.href='tel:8450988560';"
+                          data-text="For&nbsp;Support&nbsp;:&nbsp;+91&nbsp;8450988560"
                         >
-                          For Support : +91&nbsp;8828655290&nbsp;
+                          For Support : +91&nbsp;8450988560&nbsp;
                         </h5>
                       </div>
                     </div>
@@ -5828,12 +6479,12 @@
                           display: flex;
                           flex-direction: column;
                         "
-                        onclick="window.location.href='tel:8828655290';"
+                        onclick="window.location.href='tel:8450988560';"
                       >
                         <b
                           class="vertical_animation_top2bottom"
-                          data-text="+91&nbsp;8828655290"
-                          >+91&nbsp;8828655290</b
+                          data-text="+91&nbsp;8450988560"
+                          >+91&nbsp;8450988560</b
                         >
                         <div
                           style="
@@ -7982,7 +8633,7 @@
                           <li
                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3803"
                           >
-                            <a href="tel:+918828655290" class="menu-link"
+                            <a href="tel:+918450988560" class="menu-link"
                               ><i
                                 class="_mi _before fa fa-phone"
                                 aria-hidden="true"
@@ -9059,4 +9710,4 @@
     </script>
   </body>
 </html>
-
+ -->
